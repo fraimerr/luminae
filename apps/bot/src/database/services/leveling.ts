@@ -71,6 +71,9 @@ export const updateLevelData = async (
 ) => {
 	return await prisma.leveling.update({
 		where: { userId_guildId: { userId, guildId } },
-		data,
+		data: {
+			...data,
+			lastUpdate: new Date(),
+		},
 	});
 };

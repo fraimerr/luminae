@@ -37,6 +37,7 @@ export class LevelingManager {
 				xp: {
 					increment: LevelingManager.getXp(1),
 				},
+				lastUpdate: new Date(),
 			},
 		});
 	}
@@ -49,6 +50,7 @@ export class LevelingManager {
 				xp: {
 					decrement: this.getXp(1),
 				},
+				lastUpdate: new Date(),
 			},
 		});
 	}
@@ -69,6 +71,8 @@ export class LevelingManager {
 					increment: xp,
 				},
 				level: this.getLevel(levelData.xp + xp),
+
+				lastUpdate: new Date(),
 			},
 		});
 
@@ -93,6 +97,7 @@ export class LevelingManager {
 					decrement: xp,
 				},
 				level: this.getLevel(levelData.xp - xp),
+				lastUpdate: new Date(),
 			},
 		});
 	}
@@ -103,6 +108,7 @@ export class LevelingManager {
 			data: {
 				xp: xp,
 				level: this.getLevel(xp),
+				lastUpdate: new Date(),
 			},
 		});
 	}

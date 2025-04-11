@@ -35,7 +35,7 @@ export class UserCommand extends Command {
 	) {
 		try {
 			const user = authorOrUser(messageOrInteraction);
-			
+
 			const forceUser = await messageOrInteraction.guild?.members
 				.fetch(user.id)
 				.catch(() => null);
@@ -86,11 +86,16 @@ export class UserCommand extends Command {
 						inline: true,
 					},
 					{
+						name: "Last Activity:",
+						value: `<t:${Math.floor(levelData.lastUpdate.getTime() / 1000)}:R>`,
+						inline: true,
+					},
+					{
 						name: "Joined",
 						value: joinedAt
 							? `<t:${Math.floor(
 									joinedAt.getTime() / 1000
-							  )}:R> (${joinedDays} days)`
+							  )}:D> (<t:${Math.floor(joinedAt.getTime() / 1000)}:R>)`
 							: "Unknown",
 						inline: true,
 					},
@@ -98,13 +103,18 @@ export class UserCommand extends Command {
 						name: "Account Created",
 						value: `<t:${Math.floor(
 							createdAt.getTime() / 1000
-						)}:R> (${accountAgeDays} days)`,
+						)}:D> (<t:${Math.floor(createdAt.getTime() / 1000)}:R>)`,
 						inline: true,
 					}
 				)
 				.setThumbnail(user.displayAvatarURL({ size: 2048, extension: "png" }))
-				.setImage(user.bannerURL({ size: 2048, extension: "png" }) ?? null)
 				.setTimestamp();
+
+			if (user.banner) {
+				embed.setImage(
+					user.bannerURL({ size: 2048, extension: "png" }) || null
+				);
+			}
 
 			await handleReply(messageOrInteraction, { embeds: [embed] });
 		} catch (error) {
