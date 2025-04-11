@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"@app/*": ["./apps/*/src"],
+			"@shared/*": ["./packages/shared/src/*"]
+		},
+		"strict": true,
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"forceConsistentCasingInFileNames": true,
+		"composite": true
+	},
+	"exclude": ["**/node_modules", "**/dist"]
+}

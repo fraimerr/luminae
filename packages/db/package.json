@@ -1,0 +1,4 @@
+{
+  "name": "@misu/db",
+  "main": "src/index.ts"
+}

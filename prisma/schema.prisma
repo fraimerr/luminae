@@ -1,0 +1,100 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Guilds {
+  id      String @id @default(auto()) @map("_id") @db.ObjectId
+  guildId String @unique
+}
+
+model Leveling {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  guildId    String
+  userId     String
+  streak     Int
+  xp         Int
+  textXp     Int
+  voiceXp    Int
+  level      Int
+  messages   Int
+  lastUpdate DateTime
+  lastText   DateTime
+  lastVoice  DateTime
+  rank       Int
+
+  @@unique([userId, guildId])
+}
+
+model LevelingConfig {
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  guildId     String  @unique
+  channelId   String?
+  message     String? @default("{user.mention} has successfully reached **Level {level}**!")
+  rewards     Json[]
+  multipliers Json[]
+}
+
+type Requirements {
+  type   String
+  value  String
+  negate Boolean?
+}
+
+type Multipliers {
+  type    String
+  value   String
+  entries Int
+}
+
+model Giveaways {
+  id           String         @id @default(auto()) @map("_id") @db.ObjectId
+  giveawayId   String         @unique
+  guildId      String
+  messageId    String?        @unique
+  channelId    String?
+  title        String
+  description  String
+  winners      Int
+  startAt      Int
+  endAt        Int
+  entries      String[]       @default([])
+  extraEntries Json?
+  requirements Requirements[]
+  multipliers  Multipliers[]
+  ended        Boolean        @default(false)
+}
+
+model Users {
+  id         String  @id @default(auto()) @map("_id") @db.ObjectId
+  discordId  String  @unique
+  username   String
+  email      String?
+  avatar     String?
+  banner     String?
+  color      Json?
+  background Json?
+
+  accessToken  String?
+  refreshToken String?
+  tokenExpires DateTime?
+  sessions     Sessions[]
+
+  createdAt DateTime @default(now())
+}
+
+model Sessions {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String   @db.ObjectId
+  token     String   @unique
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      Users    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
