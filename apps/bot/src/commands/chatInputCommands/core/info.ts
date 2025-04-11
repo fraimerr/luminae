@@ -59,6 +59,12 @@ export class UserCommand extends Command {
 			const joinedAt = forceUser.joinedAt;
 			const createdAt = user.createdAt;
 
+			const voiceTime = levelData.voiceTime;
+
+			const hours = Math.floor(voiceTime / 3600);
+			const minutes = Math.floor((voiceTime % 3600) / 60);
+			const seconds = voiceTime % 60;
+
 			const embed = new EmbedBuilder()
 				.setColor(forceUser.displayHexColor || Constants.primaryColor)
 				.setTitle(`${user.username}'s Profile`)
@@ -70,7 +76,7 @@ export class UserCommand extends Command {
 					},
 					{
 						name: "Voice",
-						value: `\`\`\`No time\`\`\``,
+						value: `\`\`\`${hours}h ${minutes}m ${seconds}s\`\`\``,
 						inline: true,
 					},
 					{

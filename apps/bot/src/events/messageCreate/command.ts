@@ -3,7 +3,6 @@ import { Command } from "~/structure/Command";
 import { Constants } from "~/util/constants";
 import { cooldown } from "~/lib/controller/cooldown";
 import { argsCheck } from "~/lib/controller/argsCheck";
-import prisma from "@misu/db";
 import { createUser } from "~/root/database/services/user";
 
 export default async function (message: Message) {
@@ -11,11 +10,7 @@ export default async function (message: Message) {
 
 	createUser(message.author.id);
 
-	const data = await prisma.guilds.findUnique({
-		where: { guildId: message.guild.id },
-	});
-
-	const prefixes = data!.prefixes;
+	const prefixes = ["misu", "mu"];
 
 	const messageContentLower = message.content.toLowerCase();
 	let usedPrefix = null;
@@ -24,7 +19,6 @@ export default async function (message: Message) {
 	for (const prefix of prefixes) {
 		const prefixLower = prefix.toLowerCase();
 
-		// Check for prefix with or without a space
 		if (messageContentLower.startsWith(prefixLower + " ")) {
 			usedPrefix = prefix;
 			contentAfterPrefix = message.content.slice(prefix.length + 1);

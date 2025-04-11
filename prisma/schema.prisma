@@ -13,7 +13,7 @@ model Guilds {
 }
 
 model Leveling {
-  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  id         String    @id @default(auto()) @map("_id") @db.ObjectId
   guildId    String
   userId     String
   streak     Int
@@ -21,11 +21,12 @@ model Leveling {
   textXp     Int
   voiceXp    Int
   level      Int
-  messages   Int
-  lastUpdate DateTime
-  lastText   DateTime
-  lastVoice  DateTime
   rank       Int
+  messages   Int
+  voiceTime  Int      @default(0)
+  lastUpdate DateTime
+  lastText   DateTime?
+  lastVoice  DateTime?
 
   @@unique([userId, guildId])
 }

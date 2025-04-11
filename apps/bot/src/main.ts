@@ -1,7 +1,13 @@
 import "dotenv/config";
 
 import { readdirSync } from "node:fs";
-import { Client, GatewayIntentBits, Options, Partials } from "discord.js";
+import {
+	Client,
+	Collection,
+	GatewayIntentBits,
+	Options,
+	Partials,
+} from "discord.js";
 import { Agent } from "undici";
 import { config } from "./config";
 import { ClusterClient, getInfo } from "discord-hybrid-sharding";
@@ -15,7 +21,7 @@ export const client = new Client({
 		GatewayIntentBits.GuildVoiceStates,
 		GatewayIntentBits.GuildInvites,
 		GatewayIntentBits.MessageContent,
-		GatewayIntentBits.GuildMessageReactions
+		GatewayIntentBits.GuildMessageReactions,
 	],
 	partials: [Partials.Message, Partials.Reaction, Partials.Channel],
 	failIfNotExists: false,
@@ -49,6 +55,7 @@ export const client = new Client({
 });
 
 client.cluster = new ClusterClient(client);
+
 const agent = new Agent({
 	connect: {
 		timeout: 30_000,

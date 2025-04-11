@@ -1,9 +1,7 @@
-import { env } from "@misu/api/src/env";
 
-export const DISCORD_OAUTH_URL = `https://discord.com/api/oauth2/authorize?client_id=${
-	env.DISCORD_CLIENT_ID
-}&redirect_uri=${encodeURIComponent(
-	env.DISCORD_REDIRECT_URI
+
+export const DISCORD_OAUTH_URL = `https://discord.com/api/oauth2/authorize?client_id=1356832750556020848&redirect_uri=${encodeURIComponent(
+	"http://localhost:5000/v1/auth/callback"
 )}&response_type=code&scope=identify%20email`;
 
 export const DISCORD_API_URL = "https://discord.com/api";
