@@ -6,7 +6,7 @@ import {
 	ButtonBuilder,
 	ButtonStyle,
 } from "discord.js";
-import { Constants } from "~/util/constants";
+import { PRIMARY_COLOR, SUPPORT_SERVER } from "@misu/shared/utils/constants";
 
 export default async function (message: Message) {
 	if (message.author.bot || !message.mentions.has(message.client.user)) return;
@@ -14,7 +14,7 @@ export default async function (message: Message) {
 	const mention = `<@${message.client.user.id}>`;
 	if (content === mention || content === `<@!${message.client.user.id}>`) {
 		const mentionEmbed = new EmbedBuilder()
-			.setColor(Constants.primaryColor)
+			.setColor(PRIMARY_COLOR)
 			.setTitle("Hey! I'm Misu!")
 			.setThumbnail(message.client.user.displayAvatarURL())
 			.setDescription(
@@ -28,12 +28,14 @@ export default async function (message: Message) {
 		const buttons = new ActionRowBuilder<ButtonBuilder>().addComponents(
 			new ButtonBuilder()
 				.setLabel("Website")
+				.setEmoji("🌐")
 				.setStyle(ButtonStyle.Link)
 				.setURL("https://blogs.mtdv.me/misu"),
 			new ButtonBuilder()
-				.setLabel("Community")
+				.setLabel("Support Server")
+				.setEmoji("🏠")
 				.setStyle(ButtonStyle.Link)
-				.setURL("https://blogs.mtdv.me/misu")
+				.setURL(SUPPORT_SERVER)
 		);
 
 		await message.reply({
