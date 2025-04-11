@@ -59,13 +59,6 @@ export class UserCommand extends Command {
 			const joinedAt = forceUser.joinedAt;
 			const createdAt = user.createdAt;
 
-			const joinedDays = joinedAt
-				? Math.floor((Date.now() - joinedAt.getTime()) / (1000 * 60 * 60 * 24))
-				: 0;
-			const accountAgeDays = Math.floor(
-				(Date.now() - createdAt.getTime()) / (1000 * 60 * 60 * 24)
-			);
-
 			const embed = new EmbedBuilder()
 				.setColor(forceUser.displayHexColor || Constants.primaryColor)
 				.setTitle(`${user.username}'s Profile`)
