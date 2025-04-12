@@ -9,6 +9,7 @@ import { ApplyCommandOption, Command } from "~/structure/Command";
 import { Constants } from "~/util/constants";
 import { authorOrUser, handleReply } from "~/util/utils";
 import { getOrCreateLevelData } from "~/root/database/services/leveling";
+import { lazyFormattedTime } from "~/util/formatter";
 
 @ApplyCommandOption(
 	new SlashCommandBuilder()
@@ -59,11 +60,7 @@ export class UserCommand extends Command {
 			const joinedAt = forceUser.joinedAt;
 			const createdAt = user.createdAt;
 
-			const voiceTime = levelData.voiceTime;
-
-			const hours = Math.floor(voiceTime / 3600);
-			const minutes = Math.floor((voiceTime % 3600) / 60);
-			const seconds = voiceTime % 60;
+			const voiceTime = lazyFormattedTime(levelData.voiceTime * 1000);
 
 			const embed = new EmbedBuilder()
 				.setColor(forceUser.displayHexColor || Constants.primaryColor)
@@ -76,7 +73,7 @@ export class UserCommand extends Command {
 					},
 					{
 						name: "Voice",
-						value: `\`\`\`${hours}h ${minutes}m ${seconds}s\`\`\``,
+						value: `\`\`\`${voiceTime}\`\`\``,
 						inline: true,
 					},
 					{
