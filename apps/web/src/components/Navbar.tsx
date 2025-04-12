@@ -14,7 +14,6 @@ const Navbar = () => {
 	const { user, isLoading, login, logout } = useAuth();
 	const pathname = usePathname();
 	const [dropdownOpen, setDropdownOpen] = useState(false);
-	const [scrolled, setScrolled] = useState(false);
 	const dropdownRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
@@ -31,31 +30,15 @@ const Navbar = () => {
 		return () => document.removeEventListener("mousedown", handleClickOutside);
 	}, []);
 
-	useEffect(() => {
-		const handleScroll = () => {
-			setScrolled(window.scrollY > 10);
-		};
-
-		window.addEventListener("scroll", handleScroll);
-		return () => window.removeEventListener("scroll", handleScroll);
-	}, []);
-
 	const navLinks = [
-		{ href: "/home", label: "Home" },
+		{ href: "/", label: "Home" },
 		{ href: "/profile", label: "Your Profile" },
 		{ href: "/dashboard", label: "Dashboard" },
 		{ href: "/donate", label: "Donate" },
 	];
 
 	return (
-		<nav
-			className={cn(
-				"w-full top-0 z-50 transition-all duration-300 border-b sticky",
-				scrolled
-					? "bg-background/95 backdrop-blur-md border-border"
-					: "bg-background border-border/40"
-			)}
-		>
+		<nav className="w-full top-0 z-50 transition-all duration-300 border-b bg-background border-border/40">
 			<div className="max-w-7xl mx-auto flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
 				<div className="flex items-center gap-6">
 					<div className="flex items-center gap-3">
