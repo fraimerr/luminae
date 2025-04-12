@@ -12,7 +12,7 @@ export default async function (message: Message) {
 
 	const xp = LevelingManager.getRandomXp();
 
-	const LevelingConfig = await prisma.levelingConfig.findUnique({
+	const levelingConfig = await prisma.levelingConfig.findUnique({
 		where: { guildId },
 	});
 
@@ -24,13 +24,13 @@ export default async function (message: Message) {
 
 	if (!levelUp) return;
 
-	if (LevelingConfig) {
-		const channel = message.guild.channels.cache.get(
-			LevelingConfig.channelId!
-		) as TextChannel;
+	if (levelingConfig?.announce === false) return;
 
-		if (!channel) return;
+	const channel = message.guild.channels.cache.get(
+		levelingConfig?.channelId!
+	) as TextChannel;
 
+	if (channel) {
 		await channel.send({
 			content: replaceVariables(
 				`{user.mention} has leveled up to **Level {level}**!`,

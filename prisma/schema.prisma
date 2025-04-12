@@ -23,7 +23,7 @@ model Leveling {
   level      Int
   rank       Int
   messages   Int
-  voiceTime  Int      @default(0)
+  voiceTime  Int       @default(0)
   lastUpdate DateTime
   lastText   DateTime?
   lastVoice  DateTime?
@@ -34,6 +34,8 @@ model Leveling {
 model LevelingConfig {
   id          String  @id @default(auto()) @map("_id") @db.ObjectId
   guildId     String  @unique
+  enabled     Boolean @default(false)
+  announce    Boolean @default(false)
   channelId   String?
   message     String? @default("{user.mention} has successfully reached **Level {level}**!")
   rewards     Json[]
