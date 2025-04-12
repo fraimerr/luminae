@@ -50,8 +50,8 @@ export default async function giveawayCreate(
 			flags: MessageFlags.Ephemeral,
 		});
 	}
-	const requirements = [];
-	const multipliers = [];
+	const requirements: {} = [];
+	const multipliers: {} = [];
 
 	function getUpdatedEmbed(): EmbedBuilder {
 		return new EmbedBuilder()
@@ -80,7 +80,7 @@ export default async function giveawayCreate(
 										} else if (r.type === "level") {
 											return `- Must have **${r.value} level**`;
 										} else if (r.type === "streak") {
-											return `- Must have **${r.value} consecutive wins**`;
+											return `- Must have **${r.value} streaks**`;
 										} else if (r.type === "booster") {
 											return `- Must be a booster`;
 										} else if (r.type === "account_age") {
@@ -106,7 +106,7 @@ export default async function giveawayCreate(
 										} else if (m.type === "level") {
 											return `- Users with **${m.value} level** get [\`+${m.entries} entries\`](https://youtu.be/dQw4w9WgXcQ?si=HKusQk05PwzGkUf7)`;
 										} else if (m.type === "streak") {
-											return `- Users with **${m.value} consecutive wins** get [\`+${m.entries} entries\`](https://youtu.be/dQw4w9WgXcQ?si=HKusQk05PwzGkUf7)`;
+											return `- Users with **${m.value} streaks** get [\`+${m.entries} entries\`](https://youtu.be/dQw4w9WgXcQ?si=HKusQk05PwzGkUf7)`;
 										} else if (m.type === "booster") {
 											return `- Boosters get [\`+${m.entries} entries\`](https://youtu.be/dQw4w9WgXcQ?si=HKusQk05PwzGkUf7)`;
 										} else if (m.type === "account_age") {
