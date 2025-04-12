@@ -33,9 +33,11 @@ export default function ProfileLayout({
 						<Skeleton className="w-24 h-8" />
 					</div>
 					<div className="grid gap-6 md:grid-cols-2">
-						{Array(4).fill(0).map((_, i) => (
-							<Skeleton key={i} className="h-[200px]" />
-						))}
+						{Array(4)
+							.fill(0)
+							.map((_, i) => (
+								<Skeleton key={i} className="h-[200px]" />
+							))}
 					</div>
 				</div>
 			</div>
@@ -67,7 +69,9 @@ export default function ProfileLayout({
 							height={128}
 						/>
 						<div className="absolute inset-0 rounded-full bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-							<span className="text-white text-sm font-medium">Change Avatar</span>
+							<span className="text-white text-sm font-medium">
+								Change Avatar
+							</span>
 						</div>
 					</div>
 					<div className="space-y-1">
@@ -83,15 +87,11 @@ export default function ProfileLayout({
 
 			<div className="pt-24">
 				<div className="flex space-x-8 border-b border-border mb-8">
+					<TabLink href="/profile" currentPath={pathname} label="Overview" />
 					<TabLink
 						href="/profile/servers"
 						currentPath={pathname}
-						label="Servers"
-					/>
-					<TabLink
-						href="/profile/rank-card"
-						currentPath={pathname}
-						label="Rank Card"
+						label="Your servers"
 					/>
 				</div>
 
