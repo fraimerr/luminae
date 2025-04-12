@@ -10,10 +10,10 @@ import {
 	type ChatInputCommandInteraction,
 	type Message,
 } from "discord.js";
-import ms from "ms";
 
 import { ApplyCommandOption, Command } from "~/structure/Command";
 import { Constants } from "~/util/constants";
+import { lazyFormattedTime } from "~/util/formatter";
 import { authorOrUser } from "~/util/utils";
 
 @ApplyCommandOption(
@@ -94,7 +94,7 @@ export class UserCommand extends Command {
 				voiceLeaderboard
 					.map((user, i) => {
 						if (user.voiceTime === 0) return null;
-						return `${i + 1}. <@${user.userId}> - **${ms(
+						return `${i + 1}. <@${user.userId}> - **${lazyFormattedTime(
 							user.voiceTime * 1000
 						)}**`;
 					})
