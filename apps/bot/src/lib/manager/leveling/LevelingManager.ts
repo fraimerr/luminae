@@ -1,4 +1,4 @@
-import prisma from "@misu/db";
+import prisma from "@zcro/db";
 import { Leveling, LevelingConfig } from "@prisma/client";
 import { GuildMember, Message } from "discord.js";
 import {

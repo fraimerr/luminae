@@ -1,4 +1,4 @@
-import prisma from "@misu/db";
+import prisma from "@zcro/db";
 import { Collection, VoiceState } from "discord.js";
 
 const voiceTime: Collection<string, number> = new Collection();

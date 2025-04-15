@@ -1,2 +1,2 @@
-export * from "./api.d.ts";
-export * from "./database.d.ts";
+export * from "@zcro/types/api";
+export * from "@zcro/types/database";

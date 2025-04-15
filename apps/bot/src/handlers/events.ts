@@ -1,6 +1,6 @@
 import { readdirSync } from "fs";
 import type { Client } from "discord.js";
-import { Logger } from "@misu/shared/utils/logger";
+import { Logger } from "@zcro/shared/utils/logger";
 
 export const handler = (client: Client) => {
 	const path = `${__dirname}/../events`;

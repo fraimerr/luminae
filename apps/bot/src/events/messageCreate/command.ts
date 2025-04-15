@@ -10,7 +10,7 @@ export default async function (message: Message) {
 
 	createUser(message.author.id);
 
-	const prefixes = ["misu", "mu"];
+	const prefixes = ["zcro", "zo"];
 
 	const messageContentLower = message.content.toLowerCase();
 	let usedPrefix = null;

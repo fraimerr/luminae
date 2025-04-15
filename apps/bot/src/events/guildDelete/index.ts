@@ -1,4 +1,4 @@
-import prisma from '@misu/db';
+import prisma from '@zcro/db';
 import type { ClientEvents } from '~/types/events';
 
 const guildDelete: ClientEvents['GuildDelete'] = async (guild) => {

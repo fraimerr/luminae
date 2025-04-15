@@ -2,14 +2,14 @@ import { cyan, cyanBright } from "colorette";
 import { ActivityType, Client } from "discord.js";
 import figlet from "figlet";
 import gradient from "gradient-string";
-import { Logger } from "@misu/shared/utils/logger";
+import { Logger } from "@zcro/shared/utils/logger";
 import { syncCommands } from "~/util/syncCommand";
 
 export default async function (client: Client<true>) {
 	const pad = " ".repeat(2);
 
 	console.log(
-		`${gradient.pastel.multiline(figlet.textSync("M I	S U"))}
+		`${gradient.pastel.multiline(figlet.textSync("Z C R O"))}
       ${pad}${
 			cyan("V ") +
 			cyanBright(
@@ -35,7 +35,7 @@ export default async function (client: Client<true>) {
 
 	await syncCommands(client);
 
-	client.user.setActivity(`mizu help`, {
+	client.user.setActivity(`Development`, {
 		type: ActivityType.Listening as number,
 	});
 }

@@ -9,7 +9,7 @@ export default function Home() {
 				<div className="md:w-1/2 mb-12 md:mb-0">
 					<h1 className="text-4xl md:text-6xl font-bold mb-6">
 						Elevate your Discord Server with{" "}
-						<span className="text-primary">Misu</span>
+						<span className="text-primary">Zcro</span>
 					</h1>
 					<p className="text-lg md:text-xl text-gray-300 mb-8">
 						Featuring advanced leveling systems and customizable giveaways.
@@ -33,7 +33,7 @@ export default function Home() {
 						<div className="relative p-8 rounded-3xl shadow-2xl">
 							<Image
 								src="/icon.jpg"
-								alt="Misu"
+								alt="Zcro"
 								className="w-full h-auto rounded-3xl"
 								width={500}
 								height={500}

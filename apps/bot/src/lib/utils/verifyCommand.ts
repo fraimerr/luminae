@@ -15,7 +15,7 @@ import type {
 	ContextMenuUserCommand,
 } from "~/types/command";
 import type { Command } from "../structures/Command";
-import prisma from "@misu/db";
+import prisma from "@zcro/db";
 
 export const verifyCommand = async (
 	interaction: ChatInputCommandInteraction | ContextMenuCommandInteraction,

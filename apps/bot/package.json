@@ -13,12 +13,12 @@
 	"license": "ISC",
 	"dependencies": {
 		"@imranbarbhuiya/duration": "^5.1.8",
-		"@misu/db": "workspace:*",
-		"@misu/shared": "workspace:*",
-		"@misu/types": "workspace:*",
 		"@napi-rs/canvas": "^0.1.68",
 		"@sapphire/shapeshift": "^3.9.6",
 		"@skyra/jaro-winkler": "^1.1.1",
+		"@zcro/db": "workspace:*",
+		"@zcro/shared": "workspace:*",
+		"@zcro/types": "workspace:*",
 		"canvas": "^3.1.0",
 		"canvas-emojicdn": "^1.2.2",
 		"colorette": "^2.0.20",
@@ -28,6 +28,7 @@
 		"figlet": "^1.7.0",
 		"gradient-string": "^2.0.2",
 		"ms": "^2.1.3",
+		"prettier": "^3.5.3",
 		"undici": "^6.19.2",
 		"zod": "^3.24.2"
 	},

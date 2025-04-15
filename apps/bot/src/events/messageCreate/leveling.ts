@@ -1,4 +1,4 @@
-import prisma from "@misu/db";
+import prisma from "@zcro/db";
 import { Message, TextChannel } from "discord.js";
 import { LevelingManager } from "~/manager/leveling/LevelingManager";
 import { replaceVariables } from "~/util/replaceVariables";

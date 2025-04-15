@@ -1,5 +1,5 @@
 {
-	"name": "@misu/types",
+	"name": "@zcro/types",
 	"types": "",
   "files": [
     "*.d.ts"

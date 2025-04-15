@@ -2,7 +2,7 @@ import { PermissionFlagsBits } from "discord.js";
 
 export const Constants = {
 	// colors
-	primaryColor: 0x59459d,
+	primaryColor: 0x6847b5,
 	// server invite link
 	supportInviteLink: "https://discord.gg/",
 

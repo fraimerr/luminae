@@ -1,4 +1,4 @@
-import prisma from "@misu/db";
+import prisma from "@zcro/db";
 import { Message } from "discord.js";
 
 export default async function (message: Message) {

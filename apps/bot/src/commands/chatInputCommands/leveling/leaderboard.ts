@@ -1,5 +1,5 @@
 import { Time } from "@imranbarbhuiya/duration";
-import prisma from "@misu/db";
+import prisma from "@zcro/db";
 import {
 	ActionRowBuilder,
 	ComponentType,
@@ -58,7 +58,7 @@ export class UserCommand extends Command {
 			.setDescription(
 				levelLeaderboard
 					.map((user, i) => {
-						return `${i + 1}. <@${user.userId}> - **Level ${user.level}**`;
+						return `${i + 1} - <@${user.userId}>\n **Level: ${user.level}**`;
 					})
 					.join("\n")
 			)

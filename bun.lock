@@ -2,7 +2,7 @@
   "lockfileVersion": 1,
   "workspaces": {
     "": {
-      "name": "misu",
+      "name": "zcro",
       "dependencies": {
         "@prisma/client": "^6.6.0",
         "prisma": "^6.6.0",
@@ -17,12 +17,12 @@
       },
     },
     "apps/api": {
-      "name": "@misu/api",
+      "name": "@zcro/api",
       "dependencies": {
         "@hono/zod-validator": "^0.4.3",
-        "@misu/db": "workspace:*",
-        "@misu/shared": "workspace:*",
-        "@misu/types": "workspace:*",
+        "@zcro/db": "workspace:*",
+        "@zcro/shared": "workspace:*",
+        "@zcro/types": "workspace:*",
         "discord-api-types": "^0.37.119",
         "hono": "^4.7.5",
         "hono-rate-limiter": "^0.4.2",
@@ -37,12 +37,12 @@
       "name": "@app/bot",
       "dependencies": {
         "@imranbarbhuiya/duration": "^5.1.8",
-        "@misu/db": "workspace:*",
-        "@misu/shared": "workspace:*",
-        "@misu/types": "workspace:*",
         "@napi-rs/canvas": "^0.1.68",
         "@sapphire/shapeshift": "^3.9.6",
         "@skyra/jaro-winkler": "^1.1.1",
+        "@zcro/db": "workspace:*",
+        "@zcro/shared": "workspace:*",
+        "@zcro/types": "workspace:*",
         "canvas": "^3.1.0",
         "canvas-emojicdn": "^1.2.2",
         "colorette": "^2.0.20",
@@ -52,6 +52,7 @@
         "figlet": "^1.7.0",
         "gradient-string": "^2.0.2",
         "ms": "^2.1.3",
+        "prettier": "^3.5.3",
         "undici": "^6.19.2",
         "zod": "^3.24.2",
       },
@@ -67,8 +68,6 @@
     "apps/web": {
       "name": "@app/web",
       "dependencies": {
-        "@misu/shared": "workspace:*",
-        "@misu/types": "workspace:*",
         "@radix-ui/react-dialog": "^1.1.6",
         "@radix-ui/react-label": "^2.1.2",
         "@radix-ui/react-separator": "^1.1.2",
@@ -77,6 +76,8 @@
         "@radix-ui/react-tooltip": "^1.1.8",
         "@tanstack/react-query": "^5.71.5",
         "@tanstack/react-query-devtools": "^5.71.5",
+        "@zcro/shared": "workspace:*",
+        "@zcro/types": "workspace:*",
         "class-variance-authority": "^0.7.1",
         "clsx": "^2.1.1",
         "lucide-react": "^0.487.0",
@@ -103,10 +104,10 @@
       },
     },
     "packages/db": {
-      "name": "@misu/db",
+      "name": "@zcro/db",
     },
     "packages/shared": {
-      "name": "@misu/shared",
+      "name": "@zcro/shared",
       "dependencies": {
         "@prisma/client": "^6.5.0",
         "prisma": "^6.5.0",
@@ -114,7 +115,7 @@
       },
     },
     "packages/types": {
-      "name": "@misu/types",
+      "name": "@zcro/types",
     },
   },
   "packages": {
@@ -285,14 +286,6 @@
     "@img/sharp-win32-x64": ["@img/sharp-win32-x64@0.33.5", "", { "os": "win32", "cpu": "x64" }, "sha512-MpY/o8/8kj+EcnxwvrP4aTJSWw/aZ7JIGR4aBeZkZw5B7/Jn+tY9/VNwtcoGmdT7GfggGIU4kygOMSbYnOrAbg=="],
 
     "@imranbarbhuiya/duration": ["@imranbarbhuiya/duration@5.1.8", "", {}, "sha512-6IgX7zR6YW3wpPEhtjQaP3SSLKeYDpTs4QHEEbK3WQDjTloMtyECaFEmv1HETa5Yib/rXkIzOvsu98a0A5otjA=="],
-
-    "@misu/api": ["@misu/api@workspace:apps/api"],
-
-    "@misu/db": ["@misu/db@workspace:packages/db"],
-
-    "@misu/shared": ["@misu/shared@workspace:packages/shared"],
-
-    "@misu/types": ["@misu/types@workspace:packages/types"],
 
     "@napi-rs/canvas": ["@napi-rs/canvas@0.1.69", "", { "optionalDependencies": { "@napi-rs/canvas-android-arm64": "0.1.69", "@napi-rs/canvas-darwin-arm64": "0.1.69", "@napi-rs/canvas-darwin-x64": "0.1.69", "@napi-rs/canvas-linux-arm-gnueabihf": "0.1.69", "@napi-rs/canvas-linux-arm64-gnu": "0.1.69", "@napi-rs/canvas-linux-arm64-musl": "0.1.69", "@napi-rs/canvas-linux-riscv64-gnu": "0.1.69", "@napi-rs/canvas-linux-x64-gnu": "0.1.69", "@napi-rs/canvas-linux-x64-musl": "0.1.69", "@napi-rs/canvas-win32-x64-msvc": "0.1.69" } }, "sha512-ydvNeJMRm+l3T14yCoUKqjYQiEdXDq1isznI93LEBGYssXKfSaLNLHOkeM4z9Fnw9Pkt2EKOCAtW9cS4b00Zcg=="],
 
@@ -543,6 +536,14 @@
     "@unrs/resolver-binding-win32-x64-msvc": ["@unrs/resolver-binding-win32-x64-msvc@1.4.1", "", { "os": "win32", "cpu": "x64" }, "sha512-hVXaObGI2lGFmrtT77KSbPQ3I+zk9IU500wobjk0+oX59vg/0VqAzABNtt3YSQYgXTC2a/LYxekLfND/wlt0yQ=="],
 
     "@vladfrangu/async_event_emitter": ["@vladfrangu/async_event_emitter@2.4.6", "", {}, "sha512-RaI5qZo6D2CVS6sTHFKg1v5Ohq/+Bo2LZ5gzUEwZ/WkHhwtGTCB/sVLw8ijOkAUxasZ+WshN/Rzj4ywsABJ5ZA=="],
+
+    "@zcro/api": ["@zcro/api@workspace:apps/api"],
+
+    "@zcro/db": ["@zcro/db@workspace:packages/db"],
+
+    "@zcro/shared": ["@zcro/shared@workspace:packages/shared"],
+
+    "@zcro/types": ["@zcro/types@workspace:packages/types"],
 
     "acorn": ["acorn@8.14.1", "", { "bin": { "acorn": "bin/acorn" } }, "sha512-OvQ/2pUDKmgfCg++xsTX1wGxfTaszcHVcTctW4UJB4hibJx2HXxxO5UmVgyjMa+ZDsiaf5wWLXYpRWMmBI0QHg=="],
 
@@ -1049,6 +1050,8 @@
     "prebuild-install": ["prebuild-install@7.1.3", "", { "dependencies": { "detect-libc": "^2.0.0", "expand-template": "^2.0.3", "github-from-package": "0.0.0", "minimist": "^1.2.3", "mkdirp-classic": "^0.5.3", "napi-build-utils": "^2.0.0", "node-abi": "^3.3.0", "pump": "^3.0.0", "rc": "^1.2.7", "simple-get": "^4.0.0", "tar-fs": "^2.0.0", "tunnel-agent": "^0.6.0" }, "bin": { "prebuild-install": "bin.js" } }, "sha512-8Mf2cbV7x1cXPUILADGI3wuhfqWvtiLA1iclTDbFRZkgRQS0NqsPZphna9V+HyTEadheuPmjaJMsbzKQFOzLug=="],
 
     "prelude-ls": ["prelude-ls@1.2.1", "", {}, "sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g=="],
+
+    "prettier": ["prettier@3.5.3", "", { "bin": { "prettier": "bin/prettier.cjs" } }, "sha512-QQtaxnoDJeAkDvDKWCLiwIXkTgRhwYDEQCghU9Z6q03iyek/rxRh/2lC3HB7P8sWT2xC/y5JDctPLBIGzHKbhw=="],
 
     "prisma": ["prisma@6.6.0", "", { "dependencies": { "@prisma/config": "6.6.0", "@prisma/engines": "6.6.0" }, "optionalDependencies": { "fsevents": "2.3.3" }, "peerDependencies": { "typescript": ">=5.1.0" }, "optionalPeers": ["typescript"], "bin": { "prisma": "build/index.js" } }, "sha512-SYCUykz+1cnl6Ugd8VUvtTQq5+j1Q7C0CtzKPjQ8JyA2ALh0EEJkMCS+KgdnvKW1lrxjtjCyJSHOOT236mENYg=="],
 

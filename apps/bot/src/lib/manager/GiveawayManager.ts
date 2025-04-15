@@ -1,4 +1,4 @@
-import prisma from "@misu/db";
+import prisma from "@zcro/db";
 import { Giveaways } from "@prisma/client";
 import {
 	ActionRowBuilder,

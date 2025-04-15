@@ -1,5 +1,5 @@
 {
-	"name": "@misu/api",
+	"name": "@zcro/api",
 	"private": true,
 	"scripts": {
 		"dev": "bun --watch src/index.ts",
@@ -8,9 +8,9 @@
 	},
 	"dependencies": {
 		"@hono/zod-validator": "^0.4.3",
-		"@misu/shared": "workspace:*",
-		"@misu/types": "workspace:*",
-		"@misu/db": "workspace:*",
+		"@zcro/shared": "workspace:*",
+		"@zcro/types": "workspace:*",
+		"@zcro/db": "workspace:*",
 		"discord-api-types": "^0.37.119",
 		"hono": "^4.7.5",
 		"hono-rate-limiter": "^0.4.2",
