@@ -1,5 +1,5 @@
 {
-	"name": "@zcro/api",
+	"name": "@parallel/api",
 	"private": true,
 	"scripts": {
 		"dev": "bun --watch src/index.ts",
@@ -8,9 +8,9 @@
 	},
 	"dependencies": {
 		"@hono/zod-validator": "^0.4.3",
-		"@zcro/shared": "workspace:*",
-		"@zcro/types": "workspace:*",
-		"@zcro/db": "workspace:*",
+		"@parallel/shared": "workspace:*",
+		"@parallel/types": "workspace:*",
+		"@parallel/db": "workspace:*",
 		"discord-api-types": "^0.37.119",
 		"hono": "^4.7.5",
 		"hono-rate-limiter": "^0.4.2",

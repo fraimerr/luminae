@@ -1,4 +1,4 @@
-import prisma from "@zcro/db";
+import prisma from "@parallel/db";
 import crypto from "crypto";
 import { decode, sign, verify } from "hono/jwt";
 import { env } from "../env";

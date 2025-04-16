@@ -1,5 +1,5 @@
 import { Time } from "@imranbarbhuiya/duration";
-import prisma from "@zcro/db";
+import prisma from "@parallel/db";
 import {
 	ActionRowBuilder,
 	ComponentType,

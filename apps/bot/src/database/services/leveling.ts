@@ -1,4 +1,4 @@
-import prisma from "@zcro/db";
+import prisma from "@parallel/db";
 import { Leveling } from "@prisma/client";
 
 type funcType = (

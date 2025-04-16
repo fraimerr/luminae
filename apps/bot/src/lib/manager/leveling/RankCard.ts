@@ -93,13 +93,11 @@ export class RankCard {
 		const displayName = member.displayName.replace(/(( +)|!)/g, " ").trim();
 		ctx.fillText(displayName, contentStartX, this.VERTICAL_CENTER - 30);
 
-		// Draw level info - centered vertically
 		ctx.font = '500 30px "KGPerfectPenmanship"';
 		ctx.fillStyle = "#FFFFFF";
 		const levelText = `Level ${levelData.level}`;
 		ctx.fillText(levelText, contentStartX, this.VERTICAL_CENTER + 20);
 
-		// Draw XP text
 		ctx.font = '500 24px "KGPerfectPenmanship"';
 		ctx.fillStyle = "#FFFFFF";
 		ctx.textAlign = "right";
@@ -108,7 +106,6 @@ export class RankCard {
 		)} XP (${Math.floor(progressPercentage * 100)}%)`;
 		ctx.fillText(xpText, this.CARD_WIDTH - 40, this.VERTICAL_CENTER + 20);
 
-		// Draw progress bar - centered vertically
 		const progressBarY = this.VERTICAL_CENTER + 50;
 		await this.drawProgressBar({
 			context: ctx,

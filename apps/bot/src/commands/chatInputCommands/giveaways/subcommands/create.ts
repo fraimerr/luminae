@@ -16,6 +16,7 @@ import { Constants } from "~/util/constants";
 import { Command } from "~/structure/Command";
 import { GiveawayManager } from "~/manager/GiveawayManager";
 import ms, { type StringValue } from "ms";
+import prisma from "@parallel/db";
 
 export default async function giveawayCreate(
 	interaction: ChatInputCommandInteraction<"cached">,
@@ -50,8 +51,9 @@ export default async function giveawayCreate(
 			flags: MessageFlags.Ephemeral,
 		});
 	}
-	const requirements: {} = [];
-	const multipliers: {} = [];
+
+	const requirements: { type: string; value?: string }[] = [];
+	const multipliers: { type: string; value?: string , entries: number}[] = [];
 
 	function getUpdatedEmbed(): EmbedBuilder {
 		return new EmbedBuilder()

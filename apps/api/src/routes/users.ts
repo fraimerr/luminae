@@ -1,7 +1,7 @@
 import { Hono } from "hono";
 import { authMiddleware } from "../middlewares/authMiddleware";
 import { Variables } from "../types/context";
-import prisma from "@zcro/db";
+import prisma from "@parallel/db";
 import { z } from "zod";
 
 const usersRoute = new Hono<{ Variables: Variables }>();

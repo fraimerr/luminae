@@ -2,7 +2,7 @@
   "lockfileVersion": 1,
   "workspaces": {
     "": {
-      "name": "zcro",
+      "name": "parallel",
       "dependencies": {
         "@prisma/client": "^6.6.0",
         "prisma": "^6.6.0",
@@ -17,12 +17,12 @@
       },
     },
     "apps/api": {
-      "name": "@zcro/api",
+      "name": "@parallel/api",
       "dependencies": {
         "@hono/zod-validator": "^0.4.3",
-        "@zcro/db": "workspace:*",
-        "@zcro/shared": "workspace:*",
-        "@zcro/types": "workspace:*",
+        "@parallel/db": "workspace:*",
+        "@parallel/shared": "workspace:*",
+        "@parallel/types": "workspace:*",
         "discord-api-types": "^0.37.119",
         "hono": "^4.7.5",
         "hono-rate-limiter": "^0.4.2",
@@ -40,9 +40,9 @@
         "@napi-rs/canvas": "^0.1.68",
         "@sapphire/shapeshift": "^3.9.6",
         "@skyra/jaro-winkler": "^1.1.1",
-        "@zcro/db": "workspace:*",
-        "@zcro/shared": "workspace:*",
-        "@zcro/types": "workspace:*",
+        "@parallel/db": "workspace:*",
+        "@parallel/shared": "workspace:*",
+        "@parallel/types": "workspace:*",
         "canvas": "^3.1.0",
         "canvas-emojicdn": "^1.2.2",
         "colorette": "^2.0.20",
@@ -76,8 +76,8 @@
         "@radix-ui/react-tooltip": "^1.1.8",
         "@tanstack/react-query": "^5.71.5",
         "@tanstack/react-query-devtools": "^5.71.5",
-        "@zcro/shared": "workspace:*",
-        "@zcro/types": "workspace:*",
+        "@parallel/shared": "workspace:*",
+        "@parallel/types": "workspace:*",
         "class-variance-authority": "^0.7.1",
         "clsx": "^2.1.1",
         "lucide-react": "^0.487.0",
@@ -104,10 +104,10 @@
       },
     },
     "packages/db": {
-      "name": "@zcro/db",
+      "name": "@parallel/db",
     },
     "packages/shared": {
-      "name": "@zcro/shared",
+      "name": "@parallel/shared",
       "dependencies": {
         "@prisma/client": "^6.5.0",
         "prisma": "^6.5.0",
@@ -115,7 +115,7 @@
       },
     },
     "packages/types": {
-      "name": "@zcro/types",
+      "name": "@parallel/types",
     },
   },
   "packages": {
@@ -537,13 +537,13 @@
 
     "@vladfrangu/async_event_emitter": ["@vladfrangu/async_event_emitter@2.4.6", "", {}, "sha512-RaI5qZo6D2CVS6sTHFKg1v5Ohq/+Bo2LZ5gzUEwZ/WkHhwtGTCB/sVLw8ijOkAUxasZ+WshN/Rzj4ywsABJ5ZA=="],
 
-    "@zcro/api": ["@zcro/api@workspace:apps/api"],
+    "@parallel/api": ["@parallel/api@workspace:apps/api"],
 
-    "@zcro/db": ["@zcro/db@workspace:packages/db"],
+    "@parallel/db": ["@parallel/db@workspace:packages/db"],
 
-    "@zcro/shared": ["@zcro/shared@workspace:packages/shared"],
+    "@parallel/shared": ["@parallel/shared@workspace:packages/shared"],
 
-    "@zcro/types": ["@zcro/types@workspace:packages/types"],
+    "@parallel/types": ["@parallel/types@workspace:packages/types"],
 
     "acorn": ["acorn@8.14.1", "", { "bin": { "acorn": "bin/acorn" } }, "sha512-OvQ/2pUDKmgfCg++xsTX1wGxfTaszcHVcTctW4UJB4hibJx2HXxxO5UmVgyjMa+ZDsiaf5wWLXYpRWMmBI0QHg=="],
 

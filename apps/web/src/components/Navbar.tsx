@@ -44,7 +44,7 @@ const Navbar = () => {
 					<div className="flex items-center gap-3">
 						<Link href="/" className="flex items-center gap-2.5 group">
 							<span className="font-bold text-xl bg-gradient-to-r from-primary/90 to-primary bg-clip-text text-transparent">
-								Zcro
+								Parallel
 							</span>
 						</Link>
 						<Badge variant="secondary" className="font-medium text-xs">

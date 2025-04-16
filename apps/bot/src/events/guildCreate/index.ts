@@ -1,4 +1,4 @@
-import prisma from "@zcro/db";
+import prisma from "@parallel/db";
 import { Guild } from "discord.js";
 
 export default async function (guild: Guild) {

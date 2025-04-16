@@ -1,12 +1,12 @@
-import prisma from "@zcro/db";
 import {
 	SlashCommandBuilder,
 	InteractionContextType,
-	Awaitable,
 	ChatInputCommandInteraction,
 	Client,
 	Message,
 } from "discord.js";
+import { LevelingManager } from "~/manager/leveling/LevelingManager";
+import { getLevelData } from "~/root/database/services/leveling";
 import { ApplyCommandOption, Command } from "~/structure/Command";
 
 @ApplyCommandOption(
@@ -31,11 +31,24 @@ export class UserCommand extends Command {
 
 		const user = interaction.user;
 
-		const levelingData = await prisma.leveling.findUnique({
-			where: {
-				userId_guildId: { userId: user.id, guildId: interaction.guildId },
-			},
-		});
+		const levelingData = await getLevelData(
+			user.id,
+			interaction.guildId!,
+			true
+		);
+
+		if (!levelingData) {
+			return await interaction.reply({
+				content: "You don't have any leveling data.",
+			});
+		}
+
+		const nextLevelXp = LevelingManager.getXp(levelingData.level + 1);
+		const currentLevelXp = LevelingManager.getXp(levelingData.level);
+
+		const currentProgressXp = levelingData.xp - currentLevelXp;
+		const currentToNextLevelXp = nextLevelXp - currentLevelXp;
+		const progressPercentage = (currentProgressXp / currentToNextLevelXp) * 100;
 
 		const raw = JSON.stringify({
 			user: {
@@ -52,33 +65,30 @@ export class UserCommand extends Command {
 			backgroundBrightness: 10,
 			usernameColor: "#00FF00",
 			rankData: {
-				progressPercent: 75,
-				currentXp: 750,
-				requiredXp: 1000,
-				level: 5,
-				rank: 3,
+				progressPercent: progressPercentage,
+				currentXp: levelingData.xp,
+				requiredXp: nextLevelXp,
+				level: levelingData.level,
+				rank: levelingData.rank,
 				barColor: "#FF5733",
 				levelColor: "#FFA500",
 				autoColorRank: true,
 			},
 		});
 
-		const response = await fetch(
-			"https://api.wamoone.com/v6/open-dev/cards/rank",
-			{
-				method: "POST",
-				headers: {
-					Authorization:
-						"d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5",
-					"Content-Type": "application/json",
-				},
-				body: raw,
-			}
-		);
+		const response = await fetch("https://api.wamoone.com/v6/dev/card/rank", {
+			method: "POST",
+			headers: {
+				Authorization:
+					"d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5",
+				"Content-Type": "application/json",
+			},
+			body: raw,
+		});
 
 		const data = (await response.json()) as { data: { image: string } };
 
-    console.log(data);
+		console.log(data);
 
 		await interaction.reply({
 			files: [data.data.image],

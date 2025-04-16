@@ -1,2 +1,2 @@
-export * from "@zcro/types/api";
-export * from "@zcro/types/database";
+export * from "@parallel/types/api";
+export * from "@parallel/types/database";

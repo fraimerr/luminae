@@ -8,11 +8,11 @@ const Footer = () => {
 					<div className="flex flex-col space-y-6 md:pr-10">
 						<div>
 							<span className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-primary/90 to-primary bg-clip-text text-transparent">
-								Zcro
+								Parallel
 							</span>
 						</div>
 						<p className="text-muted-foreground/90 text-sm sm:text-base leading-relaxed max-w-md">
-							Zcro is a 100% free advanced ad customizable Discord Giveaway and Leveling bot.
+							Parallel is a 100% free advanced ad customizable Discord Giveaway and Leveling bot.
 						</p>
 					</div>
 

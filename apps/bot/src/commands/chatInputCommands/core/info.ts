@@ -68,7 +68,7 @@ export class UserCommand extends Command {
 				.addFields(
 					{
 						name: "Messages",
-						value: `\`\`\`${levelData.messages.toLocaleString()} messages\`\`\``,
+						value: `\`\`\`${levelData.messages.toLocaleString()}\`\`\``,
 						inline: true,
 					},
 					{

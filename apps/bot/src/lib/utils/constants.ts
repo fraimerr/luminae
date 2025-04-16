@@ -2,7 +2,7 @@ import { PermissionFlagsBits } from "discord.js";
 
 export const Constants = {
 	// colors
-	primaryColor: 0x6847b5,
+	primaryColor: 0xd097af,
 	// server invite link
 	supportInviteLink: "https://discord.gg/",
 
@@ -12,7 +12,7 @@ export const Constants = {
 		gift: "<:gift:1350861950241869855>",
 		person: "<:person:1350862618524520610>",
 		confetti: "<a:confetti:1356320144770601090>",
-		booster: ""
+		booster: "",
 	},
 
 	owners: ["225176015016558593"] as string[],

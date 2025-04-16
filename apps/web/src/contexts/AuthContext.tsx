@@ -2,7 +2,7 @@
 
 import { useQuery } from "@tanstack/react-query";
 import { createContext, useContext, ReactNode } from "react";
-import { APIUser } from "@zcro/types";
+import { APIUser } from "@parallel/types";
 import { getData } from "~/lib/api/getData";
 
 const API_URL = "http://localhost:5000/v1";

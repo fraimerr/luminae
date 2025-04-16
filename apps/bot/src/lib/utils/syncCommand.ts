@@ -7,7 +7,7 @@ import {
 	type ApplicationCommandData,
 } from "discord.js";
 import { Constants } from "./constants";
-import { Logger } from "@zcro/shared/utils/logger";
+import { Logger } from "@parallel/shared/utils/logger";
 
 export const syncCommands = async (client: Client<true>) => {
 	if (!client.application.owner) {

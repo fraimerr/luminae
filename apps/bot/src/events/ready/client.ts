@@ -2,14 +2,14 @@ import { cyan, cyanBright } from "colorette";
 import { ActivityType, Client } from "discord.js";
 import figlet from "figlet";
 import gradient from "gradient-string";
-import { Logger } from "@zcro/shared/utils/logger";
+import { Logger } from "@parallel/shared/utils/logger";
 import { syncCommands } from "~/util/syncCommand";
 
 export default async function (client: Client<true>) {
 	const pad = " ".repeat(2);
 
 	console.log(
-		`${gradient.pastel.multiline(figlet.textSync("Z C R O"))}
+		`${gradient.pastel.multiline(figlet.textSync("P A R A L L E L"))}
       ${pad}${
 			cyan("V ") +
 			cyanBright(

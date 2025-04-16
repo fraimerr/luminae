@@ -1,4 +1,4 @@
 {
-  "name": "@zcro/db",
+  "name": "@parallel/db",
   "main": "src/index.ts"
 }

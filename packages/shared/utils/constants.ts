@@ -14,4 +14,4 @@ export const OWNER_ID = "225176015016558593";
 
 export const BETA_TESTERS = ["225176015016558593"];
 
-export const PRIMARY_COLOR = 0x6847b5;
+export const PRIMARY_COLOR = 0xd097af;

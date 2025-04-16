@@ -1,5 +1,5 @@
 {
-	"name": "@zcro/types",
+	"name": "@parallel/types",
 	"types": "",
   "files": [
     "*.d.ts"
