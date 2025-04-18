@@ -9,7 +9,10 @@ import prisma from "@parallel/db";
 import { setCookie } from "hono/cookie";
 import { SessionManager } from "../services/session";
 import type { Variables } from "../types/context";
-import { APIUser } from "discord-api-types/v10";
+import {
+	APIUser,
+	RESTPostOAuth2AccessTokenResult,
+} from "discord-api-types/v10";
 
 const authRoute = new Hono<{ Variables: Variables }>();
 
@@ -58,7 +61,9 @@ authRoute.get("/callback", async (c: Context) => {
 		);
 	}
 
-	const data = await response.json();
+	const data = (await response.json()) as RESTPostOAuth2AccessTokenResult;
+
+	console.log("Access Token Data:", data);
 
 	const fetchUser = await fetch(`${DISCORD_API_URL}/users/@me`, {
 		headers: {
