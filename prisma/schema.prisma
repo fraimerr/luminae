@@ -72,6 +72,27 @@ model Giveaways {
   ended        Boolean        @default(false)
 }
 
+model GiveawaysConfig {
+  id         String  @id @default(auto()) @map("_id") @db.ObjectId
+  guildId    String  @unique
+  enabled    Boolean @default(false)
+  winMessage String? @default("🎉 **{title}** has ended! Congratulations to {winners}!")
+}
+
+type Achievement {
+  type   String
+  value  String
+  reward String
+}
+
+model Achievements {
+  id           String        @id @default(auto()) @map("_id") @db.ObjectId
+  guildId      String        @unique
+  channelId    String?
+  enabled      Boolean       @default(false)
+  achievements Achievement[]
+}
+
 model Users {
   id         String  @id @default(auto()) @map("_id") @db.ObjectId
   discordId  String  @unique

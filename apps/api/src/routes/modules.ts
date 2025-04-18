@@ -1,5 +1,5 @@
 import { Hono } from "hono";
-import prisma from "@parallel/db/src";
+import prisma from "@parallel/db";
 
 const modulesRoute = new Hono();
 
@@ -23,11 +23,14 @@ modulesRoute.get("/:guildId", async (c) => {
 
 		const modules = {
 			leveling: prisma.levelingConfig,
+			giveaways: prisma.giveawaysConfig,
+			achievements: prisma.achievements,
 		};
 
 		const modulesData = await Promise.all(
 			Object.keys(modules).map(async (module) => {
 				const moduleConfig = modules[module as keyof typeof modules];
+				//@ts-ignore
 				const config = await moduleConfig.findUnique({
 					where: { guildId },
 				});
@@ -89,6 +92,8 @@ modulesRoute.post("/:guildId/:module", async (c) => {
 
 		const modules = {
 			leveling: prisma.levelingConfig,
+			giveaways: prisma.giveawaysConfig,
+			achievements: prisma.achievements,
 		};
 
 		const moduleConfig = modules[module as keyof typeof modules];
@@ -103,6 +108,7 @@ modulesRoute.post("/:guildId/:module", async (c) => {
 			);
 		}
 
+		//@ts-ignore
 		result = await moduleConfig.upsert({
 			where: { guildId },
 			update: {

@@ -27,6 +27,11 @@ const modules = [
 		name: "Giveaways",
 		description: "Create and manage giveaways for your server",
 	},
+	{
+		id: "achievements",
+		name: "Achievements",
+		description: "Reward users for completing specific tasks unlocking a variety of achievements",
+	},
 ];
 
 type PageParams = { guildId: string };
@@ -38,7 +43,7 @@ export default function ModulesPage({
 }) {
 	const resolvedParams = React.use(params as any) as PageParams;
 	const guildId = resolvedParams.guildId;
-	
+
 	const queryClient = useQueryClient();
 	const { data, isLoading } = useApi<APIV1ModulesResponse>(
 		`/modules/${guildId}`,
@@ -108,7 +113,7 @@ export default function ModulesPage({
 				</p>
 			</div>
 
-			<div className="grid gap-4 md:grid-cols-2">
+			<div className="grid gap-4 md:grid-cols-3">
 				{modules.map((module) => {
 					const isEnabled = data?.data?.some(
 						(m) => m.name === module.id && m.enabled
@@ -136,12 +141,7 @@ export default function ModulesPage({
 								<CardDescription>{module.description}</CardDescription>
 							</CardHeader>
 							<CardContent>
-								<Button
-									variant="outline"
-									size="sm"
-									className="w-full"
-									asChild
-								>
+								<Button variant="outline" size="sm" className="w-full" asChild>
 									<Link href={`/dashboard/${guildId}/modules/${module.id}`}>
 										Configure
 									</Link>
