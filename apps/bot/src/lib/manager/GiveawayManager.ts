@@ -17,7 +17,7 @@ export class GiveawayManager {
 		interaction: Interaction;
 		channel: TextChannel;
 		title: string;
-		description: string;
+		description?: string;
 		duration: number;
 		winners: number;
 		requirements?: [];
@@ -27,14 +27,14 @@ export class GiveawayManager {
 
 		console.log(endAt);
 
-		const giveaway = await prisma.giveaways.create({
+		let giveaway = await prisma.giveaways.create({
 			data: {
 				giveawayId: generateId(),
 				guildId: data.channel.guild.id,
 				channelId: data.channel.id,
 				title: data.title,
-				description: data.description,
-				winners: data.winners,
+				description: data.description || "",
+				winners: data.winners || 1,
 				startAt: Date.now(),
 				endAt: endAt.getTime(),
 				requirements: data.requirements || [],
@@ -49,10 +49,12 @@ export class GiveawayManager {
 			components: [row],
 		});
 
-		await prisma.giveaways.update({
+		giveaway = await prisma.giveaways.update({
 			where: { giveawayId: giveaway.giveawayId },
 			data: { messageId: message.id },
 		});
+
+		console.log(giveaway.messageId);
 
 		this.scheduleEnd(giveaway);
 

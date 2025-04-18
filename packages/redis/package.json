@@ -1,0 +1,9 @@
+{
+  "name": "@parallel/redis",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "ioredis": "^5.6.1"
+  }
+}

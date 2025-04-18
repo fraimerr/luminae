@@ -16,7 +16,6 @@ import { Constants } from "~/util/constants";
 import { Command } from "~/structure/Command";
 import { GiveawayManager } from "~/manager/GiveawayManager";
 import ms, { type StringValue } from "ms";
-import prisma from "@parallel/db";
 
 export default async function giveawayCreate(
 	interaction: ChatInputCommandInteraction<"cached">,
@@ -25,9 +24,9 @@ export default async function giveawayCreate(
 	const channel = (options.getChannel("channel") ||
 		interaction.channel) as TextChannel;
 	const title = options.getString("title", true);
-	const description = options.getString("description", true);
 	const duration = ms(options.getString("duration", true) as StringValue);
-	const winners = options.getInteger("winners", true);
+	const description = options.getString("description");
+	const winners = options.getInteger("winners") || 1;
 
 	if (!channel.isSendable()) {
 		return interaction.reply({
@@ -60,7 +59,7 @@ export default async function giveawayCreate(
 			.setTitle("Create a new giveaway")
 			.setColor(Constants.primaryColor)
 			.setDescription(
-				`**Name:** ${title}\n**Description:** ${description}\n**Duration:** ${ms(
+				`**Name:** ${title}\n**Description:** ${description || "None"}\n**Duration:** ${ms(
 					duration,
 					{ long: true }
 				)}\n**Winners:** ${winners}`
@@ -84,7 +83,7 @@ export default async function giveawayCreate(
 										} else if (r.type === "streak") {
 											return `- Must have **${r.value} streaks**`;
 										} else if (r.type === "booster") {
-											return `- Must be a booster`;
+											return `- Must be a **Booster**`;
 										} else if (r.type === "account_age") {
 											return `- Must have **${r.value} days**`;
 										}

@@ -23,21 +23,21 @@ export class UserCommand extends ChatInputCommand {
 							type: ApplicationCommandOptionType.String,
 						},
 						{
-							name: "description",
-							description: "The description of the giveaway",
-							required: true,
-							type: ApplicationCommandOptionType.String,
-						},
-						{
 							name: "duration",
 							description: "The duration of the giveaway",
 							required: true,
 							type: ApplicationCommandOptionType.String,
 						},
 						{
+							name: "description",
+							description: "The description of the giveaway",
+							required: false,
+							type: ApplicationCommandOptionType.String,
+						},
+						{
 							name: "winners",
 							description: "The number of winners",
-							required: true,
+							required: false,
 							type: ApplicationCommandOptionType.Integer,
 						},
 						{
@@ -106,7 +106,7 @@ export class UserCommand extends ChatInputCommand {
 		const subCommand = interaction.options.getSubcommand();
 
 		if (subCommand === "create") {
-			giveawayCreate(interaction, interaction.options);
+			await giveawayCreate(interaction, interaction.options);
 		} else if (subCommand === "delete") {
 		} else if (subCommand === "edit") {
 		} else if (subCommand === "pause") {
