@@ -15,20 +15,6 @@ export default function ProfilePage() {
 
 	return (
 		<div className="grid gap-6 lg:grid-cols-2">
-			<Card className="lg:col-span-2">
-				<CardHeader>
-					<CardTitle className="flex items-center gap-2">
-						<Layout className="w-5 h-5" />
-						Rank Card Preview
-					</CardTitle>
-				</CardHeader>
-				<CardContent>
-					<div className="aspect-[934/282] rounded-lg bg-card/50 border-2 border-dashed border-border flex items-center justify-center">
-						<p className="text-sm text-muted-foreground">Rank card preview will appear here</p>
-					</div>
-				</CardContent>
-			</Card>
-
 			<Card>
 				<CardHeader>
 					<CardTitle className="flex items-center gap-2">

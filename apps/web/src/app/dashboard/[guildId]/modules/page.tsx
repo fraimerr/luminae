@@ -30,7 +30,8 @@ const modules = [
 	{
 		id: "achievements",
 		name: "Achievements",
-		description: "Reward users for completing specific tasks unlocking a variety of achievements",
+		description:
+			"Reward users for completing specific tasks unlocking a variety of achievements",
 	},
 ];
 
@@ -142,7 +143,7 @@ export default function ModulesPage({
 							</CardHeader>
 							<CardContent>
 								<Button variant="outline" size="sm" className="w-full" asChild>
-									<Link href={`/dashboard/${guildId}/modules/${module.id}`}>
+									<Link href={`/dashboard/${guildId}/${module.id}`}>
 										Configure
 									</Link>
 								</Button>
