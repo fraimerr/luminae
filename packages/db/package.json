@@ -1,4 +1,6 @@
 {
   "name": "@parallel/db",
-  "main": "src/index.ts"
+  "exports":{
+    ".": "./src/index.ts"
+  }
 }
