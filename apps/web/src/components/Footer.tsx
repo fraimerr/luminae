@@ -2,17 +2,19 @@ import Link from "next/link";
 
 const Footer = () => {
 	return (
-		<footer className="mt-auto border-t border-border/40">
-			<div className="container-responsive py-12 sm:py-16 px-6">
+		<footer className="relative mt-auto border-t border-border/40 overflow-hidden">
+			<div className="absolute inset-0 bg-aurora-gradient opacity-[0.02] blur-3xl" />
+			<div className="container-responsive py-12 sm:py-16 px-6 relative">
 				<div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-20">
 					<div className="flex flex-col space-y-6 md:pr-10">
-						<div>
-							<span className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-primary/90 to-primary bg-clip-text text-transparent">
+						<div className="relative group">
+							<div className="absolute inset-0 bg-aurora-gradient blur-2xl opacity-50 group-hover:opacity-75 transition-opacity" />
+							<span className="relative text-2xl sm:text-3xl font-bold bg-gradient-to-r from-primary/90 to-primary bg-clip-text text-transparent">
 								Parallel
 							</span>
 						</div>
-						<p className="text-muted-foreground/90 text-sm sm:text-base leading-relaxed max-w-md">
-							Parallel is a 100% free advanced ad customizable Discord Giveaway and Leveling bot.
+						<p className="text-muted-foreground text-sm sm:text-base leading-relaxed max-w-md">
+							Parallel is a 100% free advanced and customizable Discord Giveaway and Leveling bot.
 						</p>
 					</div>
 
@@ -25,7 +27,7 @@ const Footer = () => {
 								<li>
 									<Link
 										href="/"
-										className="text-muted-foreground hover:text-primary transition-colors duration-200 inline-flex px-1 py-1.5"
+										className="text-muted-foreground hover:text-primary transition-all duration-300 inline-flex px-1 py-1.5 hover:translate-x-1"
 									>
 										Home
 									</Link>
@@ -33,7 +35,7 @@ const Footer = () => {
 								<li>
 									<Link
 										href="/terms"
-										className="text-muted-foreground hover:text-primary transition-colors duration-200 inline-flex px-1 py-1.5"
+										className="text-muted-foreground hover:text-primary transition-all duration-300 inline-flex px-1 py-1.5 hover:translate-x-1"
 									>
 										Terms of Use
 									</Link>
@@ -41,7 +43,7 @@ const Footer = () => {
 								<li>
 									<Link
 										href="/privacy"
-										className="text-muted-foreground hover:text-primary transition-colors duration-200 inline-flex px-1 py-1.5"
+										className="text-muted-foreground hover:text-primary transition-all duration-300 inline-flex px-1 py-1.5 hover:translate-x-1"
 									>
 										Privacy Policy
 									</Link>
@@ -49,7 +51,7 @@ const Footer = () => {
 								<li>
 									<Link
 										href="/support"
-										className="text-muted-foreground hover:text-primary transition-colors duration-200 inline-flex px-1 py-1.5"
+										className="text-muted-foreground hover:text-primary transition-all duration-300 inline-flex px-1 py-1.5 hover:translate-x-1"
 									>
 										Support
 									</Link>
@@ -57,7 +59,7 @@ const Footer = () => {
 								<li>
 									<Link
 										href="/vote"
-										className="text-muted-foreground hover:text-primary transition-colors duration-200 inline-flex px-1 py-1.5"
+										className="text-muted-foreground hover:text-primary transition-all duration-300 inline-flex px-1 py-1.5 hover:translate-x-1"
 									>
 										Vote
 									</Link>
@@ -68,13 +70,13 @@ const Footer = () => {
 				</div>
 
 				<div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-10 mt-12 border-t border-border/40">
-					<div className="text-muted-foreground/80 text-sm py-2">
-						© {new Date().getFullYear()} Trustify. All rights reserved.
+					<div className="text-muted-foreground text-sm py-2">
+						© {new Date().getFullYear()} Parallel. All rights reserved.
 					</div>
 					<div className="flex items-center gap-2.5 py-2">
-						<span className="text-sm text-muted-foreground/80">
+						<span className="text-sm text-muted-foreground">
 							Made with{" "}
-							<span className="text-red-500" aria-label="love">
+							<span className="text-red-400 animate-pulse" aria-label="love">
 								❤️
 							</span>{" "}
 							by
@@ -83,7 +85,7 @@ const Footer = () => {
 							href="https://discord.com/users/225176015016558593"
 							target="_blank"
 							rel="noopener noreferrer"
-							className="text-sm text-primary hover:text-primary/80 font-medium transition-colors"
+							className="text-sm text-primary hover:text-primary/80 font-medium transition-all duration-300 hover:translate-x-1"
 						>
 							faimerdev
 						</a>
