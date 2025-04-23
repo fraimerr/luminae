@@ -7,12 +7,69 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum DisputeMethod {
+  Modal
+  Link
+}
+
+enum InfractionType {
+  Warn
+  Mute
+  Kick
+  Ban
+  Unmute
+  Unban
+}
+
 model Guilds {
   id      String @id @default(auto()) @map("_id") @db.ObjectId
   guildId String @unique
 }
 
-model Leveling {
+model Infraction {
+  id          Int            @id @default(autoincrement())
+  userId      String
+  guildId     String
+  type        InfractionType @default(Warn)
+  date        BigInt
+  expires     BigInt?
+  reason      String         @default("Unspecified reason.")
+  moderatorId String         @default("833792285120528394")
+
+  dispute Dispute?
+  guild   Guilds   @relation(fields: [guildId], references: [guildId], onDelete: Cascade)
+}
+
+model Task {
+  id      Int            @id @default(autoincrement()) @map("_id")
+  userId  String
+  guildId String
+  type    InfractionType
+  expires BigInt
+  guild   Guilds          @relation(fields: [guildId], references: [guildId], onDelete: Cascade)
+
+  @@unique([userId, guildId, type])
+}
+
+model Dispute {
+  id       Int    @id
+  userId   String
+  guildId  String
+  response Json[]
+
+  infraction Infraction? @relation(fields: [id], references: [id], onDelete: Cascade)
+  guild      Guild       @relation(fields: [guildId], references: [id], onDelete: Cascade)
+}
+
+model Lock {
+  channelId String @id
+  guildId   String
+  allow     BigInt
+
+  guild Guild @relation(fields: [guildId], references: [id], onDelete: Cascade)
+}
+
+model GuildUser {
   id         String    @id @default(auto()) @map("_id") @db.ObjectId
   guildId    String
   userId     String
@@ -24,6 +81,7 @@ model Leveling {
   rank       Int
   messages   Int
   voiceTime  Int       @default(0)
+  invites    Int       @default(0)
   lastUpdate DateTime
   lastText   DateTime?
   lastVoice  DateTime?

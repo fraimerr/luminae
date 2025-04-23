@@ -18,9 +18,10 @@ import { Loader2 } from "lucide-react";
 
 const modules = [
 	{
-		id: "leveling",
-		name: "Leveling",
-		description: "Track user activity and reward them with levels and roles",
+		id: "achievements",
+		name: "Achievements",
+		description:
+			"Reward users for completing specific tasks unlocking a variety of achievements",
 	},
 	{
 		id: "giveaways",
@@ -28,10 +29,9 @@ const modules = [
 		description: "Create and manage giveaways for your server",
 	},
 	{
-		id: "achievements",
-		name: "Achievements",
-		description:
-			"Reward users for completing specific tasks unlocking a variety of achievements",
+		id: "leveling",
+		name: "Leveling",
+		description: "Track user activity and reward them with levels and roles",
 	},
 ];
 

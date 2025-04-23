@@ -7,7 +7,7 @@ import {
 } from "discord.js";
 import { ApplyCommandOption, Command } from "~/structure/Command";
 import { Constants } from "~/util/constants";
-import { authorOrUser, handleReply } from "~/util/utils";
+import { authorOrUser, getMember, handleReply } from "~/util/utils";
 import { getOrCreateLevelData } from "~/root/database/services/leveling";
 import { lazyFormattedTime } from "~/util/formatter";
 
@@ -121,5 +121,18 @@ export class UserCommand extends Command {
 				ephemeral: true,
 			});
 		}
+	}
+
+	protected override transformArgs(message: Message<true>, args: string[]) {
+		const member =
+			getMember(message, args.join(" ")) ??
+			message.mentions.members.first() ??
+			message.member;
+		const options: Partial<Command.ChatInputOptions> = {
+			getMember: () => member!,
+			// eslint-disable-next-line @typescript-eslint/no-non-null-asserted-optional-chain
+			getUser: () => member?.user!,
+		};
+		return options as Command.ChatInputOptions;
 	}
 }

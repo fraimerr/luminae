@@ -1,11 +1,11 @@
 import prisma from "@parallel/db";
-import { Leveling } from "@prisma/client";
+import { GuildUser } from "@prisma/client";
 
 type funcType = (
 	userId: string,
 	guildId: string,
 	getRank?: boolean
-) => Promise<Leveling>;
+) => Promise<GuildUser>;
 
 export const getOrCreateLevelData: funcType = async (
 	userId,
@@ -13,10 +13,10 @@ export const getOrCreateLevelData: funcType = async (
 	getRank
 ) => {
 	let data =
-		(await prisma.leveling.findUnique({
+		(await prisma.guildUser.findUnique({
 			where: { userId_guildId: { userId, guildId } },
 		})) ??
-		(await prisma.leveling.create({
+		(await prisma.guildUser.create({
 			data: {
 				userId,
 				guildId,
@@ -34,12 +34,12 @@ export const getOrCreateLevelData: funcType = async (
 		}));
 
 	if (getRank) {
-		const levelingData = await prisma.leveling.findMany({
+		const guildUserData = await prisma.guildUser.findMany({
 			where: { guildId },
 			orderBy: { xp: "desc" },
 		});
 
-		const index = levelingData.findIndex((i) => i.userId === userId);
+		const index = guildUserData.findIndex((i) => i.userId === userId);
 		data.rank = index + 1 || 0;
 	}
 
@@ -47,13 +47,13 @@ export const getOrCreateLevelData: funcType = async (
 };
 
 export const getLevelData: funcType = async (userId, guildId, getRank) => {
-	const data = await prisma.leveling.findUnique({
+	const data = await prisma.guildUser.findUnique({
 		where: { userId_guildId: { userId, guildId } },
 	});
 
 	if (getRank) {
 		const index = (
-			await prisma.leveling.findMany({
+			await prisma.guildUser.findMany({
 				where: { guildId },
 				orderBy: { xp: "desc" },
 			})
@@ -67,9 +67,9 @@ export const getLevelData: funcType = async (userId, guildId, getRank) => {
 export const updateLevelData = async (
 	userId: string,
 	guildId: string,
-	data: Partial<Leveling>
+	data: Partial<GuildUser>
 ) => {
-	return await prisma.leveling.update({
+	return await prisma.guildUser.update({
 		where: { userId_guildId: { userId, guildId } },
 		data: {
 			...data,

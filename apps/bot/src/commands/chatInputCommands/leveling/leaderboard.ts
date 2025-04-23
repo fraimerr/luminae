@@ -31,17 +31,17 @@ export class UserCommand extends Command {
 	protected override async runTask(
 		messageOrInteraction: ChatInputCommandInteraction<"cached"> | Message<true>
 	) {
-		const levelLeaderboard = await prisma.leveling.findMany({
+		const levelLeaderboard = await prisma.guildUser.findMany({
 			where: { guildId: messageOrInteraction.guild.id },
 			orderBy: { xp: "desc" },
 		});
 
-		const messageLeaderboard = await prisma.leveling.findMany({
+		const messageLeaderboard = await prisma.guildUser.findMany({
 			where: { guildId: messageOrInteraction.guild.id },
 			orderBy: { messages: "desc" },
 		});
 
-		const voiceLeaderboard = await prisma.leveling.findMany({
+		const voiceLeaderboard = await prisma.guildUser.findMany({
 			where: { guildId: messageOrInteraction.guild.id },
 			orderBy: { voiceTime: "desc" },
 		});

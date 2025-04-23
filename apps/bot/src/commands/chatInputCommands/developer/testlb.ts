@@ -31,7 +31,7 @@ export class UserCommand extends Command {
 		const interaction =
 			messageOrInteraction as ChatInputCommandInteraction<"cached">;
 
-		const levelingData = await prisma.leveling.findMany({
+		const levelingData = await prisma.guildUser.findMany({
 			where: { guildId: interaction.guildId! },
 			orderBy: { xp: "desc" },
 		});

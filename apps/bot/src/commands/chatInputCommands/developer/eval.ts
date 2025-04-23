@@ -223,4 +223,22 @@ export class UserCommand extends Command {
 			await messageOrInteraction.reply(payload);
 		}
 	}
+
+	protected override transformArgs(message: Message<true>, args: string[]) {
+		const code = args.join(" ");
+		if (!code) return "Please provide code to evaluate.";
+		
+		return {
+			// eslint-disable-next-line @typescript-eslint/no-unused-vars
+			getString(name: string, required?: boolean) {
+				if (name === "code") return code;
+				if (name === "mode") return "javascript";
+				return null;
+			},
+			// eslint-disable-next-line @typescript-eslint/no-unused-vars
+			getBoolean(name: string) {
+				return false;
+			}
+		} as unknown as Command.ChatInputOptions;
+	}
 }

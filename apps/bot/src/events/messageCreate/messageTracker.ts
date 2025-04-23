@@ -5,7 +5,7 @@ export default async function (message: Message) {
 	if (!message.inGuild()) return;
 	if (message.author.bot) return;
 
-	await prisma.leveling.updateMany({
+	await prisma.guildUser.updateMany({
 		where: { userId: message.author.id, guildId: message.guild.id },
 		data: { messages: { increment: 1 } },
 	});

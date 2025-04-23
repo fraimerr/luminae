@@ -22,7 +22,7 @@ export default async function (oldState: VoiceState, newState: VoiceState) {
 			const duration = Math.floor((Date.now() - voiceTime.get(userId)!) / 1000);
 			voiceTime.set(userId, Date.now());
 			
-			await prisma.leveling.update({
+			await prisma.guildUser.update({
 				where: { userId_guildId: { userId, guildId } },
 				data: {
 					voiceTime: {
@@ -49,7 +49,7 @@ export default async function (oldState: VoiceState, newState: VoiceState) {
 				updateIntervals.delete(userId);
 			}
 
-			await prisma.leveling.update({
+			await prisma.guildUser.update({
 				where: { userId_guildId: { userId, guildId } },
 				data: {
 					voiceTime: {

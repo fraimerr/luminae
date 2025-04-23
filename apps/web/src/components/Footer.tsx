@@ -87,7 +87,7 @@ const Footer = () => {
 							rel="noopener noreferrer"
 							className="text-sm text-primary hover:text-primary/80 font-medium transition-all duration-300 hover:translate-x-1"
 						>
-							faimerdev
+							fraimerdev
 						</a>
 					</div>
 				</div>

@@ -100,4 +100,17 @@ export class UserCommand extends Command {
 			await messageOrInteraction.editReply(payload).catch(() => null);
 		else await messageOrInteraction.reply(payload);
 	}
+
+	protected override transformArgs(message: Message<true>, args: string[]) {
+		const command = args.join(" ");
+		if (!command) return "Please provide a command to run.";
+		
+		return {
+			// eslint-disable-next-line @typescript-eslint/no-unused-vars
+			getString(name: string, required?: boolean) {
+				if (name === "command") return command;
+				return null;
+			}
+		} as unknown as Command.ChatInputOptions;
+	}
 }

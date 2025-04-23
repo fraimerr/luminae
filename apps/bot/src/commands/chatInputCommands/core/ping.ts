@@ -36,4 +36,9 @@ export class UserCommand extends Command {
 			);
 		} catch (e) {}
 	}
+
+	protected override transformArgs(message: Message<true>, args: string[]) {
+		// Ping command doesn't need any args, so we just return an empty options object
+		return {} as Command.ChatInputOptions;
+	}
 }

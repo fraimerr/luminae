@@ -30,7 +30,7 @@ export class LevelingManager {
 	}
 
 	public static async addLevel(userId: string, guildId: string) {
-		return await prisma.leveling.update({
+		return await prisma.guildUser.update({
 			where: { userId_guildId: { userId, guildId } },
 			data: {
 				level: { increment: 1 },
@@ -43,7 +43,7 @@ export class LevelingManager {
 	}
 
 	public static async removeLevel(userId: string, guildId: string) {
-		return await prisma.leveling.update({
+		return await prisma.guildUser.update({
 			where: { userId_guildId: { userId, guildId } },
 			data: {
 				level: { decrement: 1 },
@@ -64,7 +64,7 @@ export class LevelingManager {
 
 		const currentLevel = levelData.level;
 
-		levelData = await prisma.leveling.update({
+		levelData = await prisma.guildUser.update({
 			where: { userId_guildId: { userId, guildId } },
 			data: {
 				xp: {
@@ -85,12 +85,12 @@ export class LevelingManager {
 		const levelData = await getLevelData(userId, guildId);
 
 		if (xp > levelData.xp) {
-			return await prisma.leveling.delete({
+			return await prisma.guildUser.delete({
 				where: { userId_guildId: { userId, guildId } },
 			});
 		}
 
-		return await prisma.leveling.update({
+		return await prisma.guildUser.update({
 			where: { userId_guildId: { userId, guildId } },
 			data: {
 				xp: {
@@ -103,7 +103,7 @@ export class LevelingManager {
 	}
 
 	public static setXp(userId: string, guildId: string, xp: number) {
-		return prisma.leveling.update({
+		return prisma.guildUser.update({
 			where: { userId_guildId: { userId, guildId } },
 			data: {
 				xp: xp,
@@ -118,6 +118,8 @@ export class LevelingManager {
 	}
 
 	public static getRandomXp(min?: number, max?: number) {
-		return Math.round(Math.random() * ((max ?? 15) - (min ?? 5))) + (min ?? 5);
+		return (
+			Math.round(Math.random() * ((max ?? 25) - (min ?? 15))) + (min ?? 15)
+		);
 	}
 }

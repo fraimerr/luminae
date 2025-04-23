@@ -13,7 +13,6 @@ export const replaceVariables = (
 		"user.mention": mention ? `${member}` : member.user.tag,
 		"user.nickname": member.displayName,
 		"user.username": member.user.username,
-		"user.tag": member.user.tag,
 		"user.id": member.id,
 		level: levelData.level.toString(),
 		xp: levelData.xp.toString(),
