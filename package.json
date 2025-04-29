@@ -1,5 +1,5 @@
 {
-	"name": "parallel",
+	"name": "luminae",
 	"module": "index.ts",
 	"type": "module",
 	"private": true,

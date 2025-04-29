@@ -6,7 +6,7 @@ import { rateLimiter } from "hono-rate-limiter";
 import path from "path";
 import { readdirSync } from "fs";
 import { type Variables } from "./types/context";
-import { Logger } from "@parallel/shared/utils/logger";
+import { Logger } from "@luminae/shared/utils/logger";
 
 const app = new Hono<{ Variables: Variables }>().basePath("/v1");
 

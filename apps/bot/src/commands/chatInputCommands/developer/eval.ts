@@ -8,7 +8,7 @@ import { Command } from "~/structure/Command";
 import { inspect } from "util";
 import * as ts from "typescript";
 import { performance } from "perf_hooks";
-import { Logger } from "@parallel/shared/utils/logger";
+import { Logger } from "@luminae/shared/utils/logger";
 import { authorOrUser, formatMs, isInteraction } from "~/util/utils";
 
 export class UserCommand extends Command {

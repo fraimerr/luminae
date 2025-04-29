@@ -2,7 +2,7 @@ import "dotenv/config";
 import { env } from "./env";
 import { ClusterManager } from "discord-hybrid-sharding";
 import { ChildProcess } from "child_process";
-import { Logger } from "@parallel/shared/utils/logger";
+import { Logger } from "@luminae/shared/utils/logger";
 
 const isProductionMode = process.env.NODE_ENV === "production";
 

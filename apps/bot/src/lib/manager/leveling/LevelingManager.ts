@@ -1,4 +1,4 @@
-import prisma from "@parallel/db";
+import prisma from "@luminae/db";
 import { Leveling, LevelingConfig } from "@prisma/client";
 import { GuildMember, Message } from "discord.js";
 import {

@@ -16,9 +16,9 @@ export default function TermsOfServicePage() {
 				<section>
 					<h2 className="text-2xl font-semibold mb-4">Acceptance of Terms</h2>
 					<p className="text-muted-foreground">
-						By inviting Parallel Bot to your Discord server, you agree to be
+						By inviting Luminae Bot to your Discord server, you agree to be
 						bound by these Terms of Service. These terms constitute a legally
-						binding agreement between you and Parallel Bot. If you disagree with
+						binding agreement between you and Luminae Bot. If you disagree with
 						any part of these terms, you must not use our service. By continuing
 						to use our service, you acknowledge that you have read and
 						understood these terms.
@@ -29,7 +29,7 @@ export default function TermsOfServicePage() {
 					<h2 className="text-2xl font-semibold mb-4">Use License</h2>
 					<p className="text-muted-foreground mb-6">
 						We grant you a limited, non-exclusive, non-transferable license to
-						use Parallel Bot in your Discord server. This license permits you to
+						use Luminae Bot in your Discord server. This license permits you to
 						configure bot settings for your server and access all available
 						dashboard features. The license is specific to your Discord server
 						and cannot be transferred to another party.
@@ -47,7 +47,7 @@ export default function TermsOfServicePage() {
 				<section>
 					<h2 className="text-2xl font-semibold mb-4">Service Availability</h2>
 					<p className="text-muted-foreground">
-						While we strive to provide 24/7 uptime for Parallel Bot, we cannot
+						While we strive to provide 24/7 uptime for Luminae Bot, we cannot
 						guarantee continuous, uninterrupted access to our services. The
 						bot&apos;s availability and response time for commands may vary
 						based on various factors, including but not limited to server load,
@@ -61,7 +61,7 @@ export default function TermsOfServicePage() {
 				<section>
 					<h2 className="text-2xl font-semibold mb-4">User Responsibilities</h2>
 					<p className="text-muted-foreground">
-						As a user of Parallel Bot, you bear important responsibilities in
+						As a user of Luminae Bot, you bear important responsibilities in
 						maintaining the security and proper operation of the bot within your
 						server. You must ensure proper configuration of bot permissions and
 						maintain the security of your Discord server. You are solely
@@ -94,7 +94,7 @@ export default function TermsOfServicePage() {
 						When we make changes, we will notify users through our support
 						server, update the &quot;last modified&quot; date at the top of
 						these terms, and send direct messages to server owners when
-						significant changes occur. Your continued use of Parallel Bot after
+						significant changes occur. Your continued use of Luminae Bot after
 						such modifications constitutes your acceptance of the updated terms.
 					</p>
 				</section>
@@ -106,7 +106,7 @@ export default function TermsOfServicePage() {
 						we encourage you to reach out to us. The most efficient way to get
 						assistance is by joining our Discord support server, where our team
 						can address your inquiries directly. For formal communications, you
-						can contact us via email at support@parallel-bot.com. We strive to
+						can contact us via email at support@luminae-bot.com. We strive to
 						respond to all inquiries promptly and thoroughly.
 					</p>
 				</section>

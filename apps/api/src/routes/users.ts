@@ -1,13 +1,13 @@
 import { Hono } from "hono";
 import { authMiddleware } from "../middlewares/authMiddleware";
 import { Variables } from "../types/context";
-import prisma from "@parallel/db";
+import prisma from "@luminae/db";
 import { z } from "zod";
 import { getBotGuilds, getUserGuilds } from "../utils/discord";
 import { APIGuild } from "discord-api-types/v10";
 import { env } from "../env";
-import { Logger } from "@parallel/shared/utils/logger";
-import { Guild } from "@parallel/types";
+import { Logger } from "@luminae/shared/utils/logger";
+import { Guild } from "@luminae/types";
 
 const usersRoute = new Hono<{ Variables: Variables }>();
 

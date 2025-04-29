@@ -7,7 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Skeleton } from "~/components/ui/skeleton";
 import { useQuery } from "@tanstack/react-query";
-import { APIV1UserGuildsResponse } from "@parallel/types";
+import { APIV1UserGuildsResponse } from "@luminae/types";
 import { getData } from "~/lib/api/getData";
 
 export default function DashboardClient() {

@@ -10,7 +10,7 @@ import {
 	CardContent,
 } from "~/components/ui/card";
 import { Switch } from "~/components/ui/switch";
-import { APIV1ModulesResponse } from "@parallel/types";
+import { APIV1ModulesResponse } from "@luminae/types";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { Button } from "~/components/ui/button";
 import Link from "next/link";

@@ -10,11 +10,11 @@ const Footer = () => {
 						<div className="relative group">
 							<div className="absolute inset-0 bg-aurora-gradient blur-2xl opacity-50 group-hover:opacity-75 transition-opacity" />
 							<span className="relative text-2xl sm:text-3xl font-bold bg-gradient-to-r from-primary/90 to-primary bg-clip-text text-transparent">
-								Parallel
+								Luminae
 							</span>
 						</div>
 						<p className="text-muted-foreground text-sm sm:text-base leading-relaxed max-w-md">
-							Parallel is a 100% free advanced and customizable Discord Giveaway and Leveling bot.
+							Luminae is a 100% free advanced and customizable Discord Giveaway and Leveling bot.
 						</p>
 					</div>
 
@@ -71,7 +71,7 @@ const Footer = () => {
 
 				<div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-10 mt-12 border-t border-border/40">
 					<div className="text-muted-foreground text-sm py-2">
-						© {new Date().getFullYear()} Parallel. All rights reserved.
+						© {new Date().getFullYear()} Luminae. All rights reserved.
 					</div>
 					<div className="flex items-center gap-2.5 py-2">
 						<span className="text-sm text-muted-foreground">

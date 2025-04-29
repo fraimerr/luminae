@@ -46,7 +46,7 @@ const Navbar = () => {
 							<div className="relative">
 								<div className="absolute inset-0 bg-aurora-gradient blur-2xl opacity-50 group-hover:opacity-75 transition-opacity" />
 								<span className="relative font-bold text-xl bg-gradient-to-r from-primary/90 to-primary bg-clip-text text-transparent">
-									Parallel
+									Luminae
 								</span>
 							</div>
 						</Link>

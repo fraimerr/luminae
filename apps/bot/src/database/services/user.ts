@@ -1,5 +1,5 @@
-import prisma from "@parallel/db";
-import { Logger } from "@parallel/shared/utils/logger";
+import prisma from "@luminae/db";
+import { Logger } from "@luminae/shared/utils/logger";
 import { client } from "~/root/main";
 
 export const getUser = async (userId: string) => {

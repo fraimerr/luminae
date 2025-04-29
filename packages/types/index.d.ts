@@ -1,2 +1,2 @@
-export * from "@parallel/types/api";
-export * from "@parallel/types/database";
+export * from "@luminae/types/api";
+export * from "@luminae/types/database";

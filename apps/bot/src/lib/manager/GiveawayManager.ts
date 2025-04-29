@@ -1,4 +1,4 @@
-import prisma from "@parallel/db";
+import prisma from "@luminae/db";
 import { Giveaways } from "@prisma/client";
 import {
 	ActionRowBuilder,

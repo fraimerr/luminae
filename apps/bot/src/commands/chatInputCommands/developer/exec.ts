@@ -9,7 +9,7 @@ import {
 	type Message,
 } from "discord.js";
 
-import { Logger } from "@parallel/shared/utils/logger";
+import { Logger } from "@luminae/shared/utils/logger";
 import { Command } from "~/structure/Command";
 import { authorOrUser, formatMs, isInteraction } from "~/util/utils";
 

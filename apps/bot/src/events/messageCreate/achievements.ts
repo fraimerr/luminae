@@ -1,6 +1,6 @@
 import { ChannelType, Message } from "discord.js";
 import { AchievementCard } from "~/manager/achievements/AchievementCard";
-import prisma from "@parallel/db";
+import prisma from "@luminae/db";
 
 export default async function (message: Message) {
 	if (message.author.bot) return;

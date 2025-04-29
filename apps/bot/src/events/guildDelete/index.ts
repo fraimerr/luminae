@@ -1,4 +1,4 @@
-import prisma from '@parallel/db';
+import prisma from '@luminae/db';
 import type { ClientEvents } from '~/types/events';
 
 const guildDelete: ClientEvents['GuildDelete'] = async (guild) => {

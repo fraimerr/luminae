@@ -1,5 +1,5 @@
 {
-  "name": "@parallel/db",
+  "name": "@luminae/db",
   "exports":{
     ".": "./src/index.ts"
   }

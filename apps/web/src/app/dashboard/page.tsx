@@ -3,7 +3,7 @@ import { dehydrate } from "@tanstack/react-query";
 import { HydrationBoundary } from "@tanstack/react-query";
 import DashboardClient from "./DashboardClient";
 import { getData } from "~/lib/api/getData";
-import { APIV1UserGuildsResponse } from "@parallel/types";
+import { APIV1UserGuildsResponse } from "@luminae/types";
 
 export default async function DashboardPage() {
 	const queryClient = new QueryClient();

@@ -1,4 +1,4 @@
-import prisma from "@parallel/db";
+import prisma from "@luminae/db";
 import { MessageReaction, TextChannel, User } from "discord.js";
 import { LevelingManager } from "~/manager/leveling/LevelingManager";
 import { replaceVariables } from "~/util/replaceVariables";

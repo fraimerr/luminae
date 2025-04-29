@@ -1,5 +1,5 @@
 {
-	"name": "@parallel/types",
+	"name": "@luminae/types",
 	"types": "",
   "files": [
     "*.d.ts"

@@ -1,6 +1,6 @@
 import { readdirSync } from "fs";
 import type { Client } from "discord.js";
-import { Logger } from "@parallel/shared/utils/logger";
+import { Logger } from "@luminae/shared/utils/logger";
 
 export const handler = (client: Client) => {
 	const path = `${__dirname}/../events`;

@@ -1,7 +1,7 @@
 import type { Context, Next } from "hono";
 import { getCookie } from "hono/cookie";
 import { SessionManager } from "../services/session";
-import prisma from "@parallel/db";
+import prisma from "@luminae/db";
 
 const sessionManager = new SessionManager();
 

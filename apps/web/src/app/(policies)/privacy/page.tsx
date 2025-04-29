@@ -16,7 +16,7 @@ export default function PrivacyPolicyPage() {
 				<section>
 					<h2 className="text-2xl font-semibold mb-4">1. Introduction</h2>
 					<p className="text-muted-foreground">
-						Parallel (&quot;the Bot&quot;) is a Discord app designed to manage
+						Luminae (&quot;the Bot&quot;) is a Discord app designed to manage
 						an advanced giveaways, track user&apos;s activities and provide
 						leveling features. Befote using the Bot you must read and agree to
 						the Terms of Use then this Privacy Policy. Your data is important to

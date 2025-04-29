@@ -2,7 +2,7 @@ import { cyan, cyanBright } from "colorette";
 import { ActivityType, Client } from "discord.js";
 import figlet from "figlet";
 import gradient from "gradient-string";
-import { Logger } from "@parallel/shared/utils/logger";
+import { Logger } from "@luminae/shared/utils/logger";
 import { syncCommands } from "~/util/syncCommand";
 
 export default async function (client: Client<true>) {

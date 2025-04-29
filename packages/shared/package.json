@@ -1,5 +1,5 @@
 {
-	"name": "@parallel/shared",
+	"name": "@luminae/shared",
 	"dependencies": {
 		"@prisma/client": "^6.5.0",
 		"prisma": "^6.5.0",

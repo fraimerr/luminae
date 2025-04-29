@@ -1,5 +1,5 @@
 import { Hono } from "hono";
-import prisma from "@parallel/db";
+import prisma from "@luminae/db";
 
 const modulesRoute = new Hono();
 

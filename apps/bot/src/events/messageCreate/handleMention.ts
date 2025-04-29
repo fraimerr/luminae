@@ -6,7 +6,7 @@ import {
 	ButtonBuilder,
 	ButtonStyle,
 } from "discord.js";
-import { PRIMARY_COLOR, SUPPORT_SERVER } from "@parallel/shared/utils/constants";
+import { PRIMARY_COLOR, SUPPORT_SERVER } from "@luminae/shared/utils/constants";
 
 export default async function (message: Message) {
 	if (message.author.bot || !message.mentions.has(message.client.user)) return;
@@ -15,7 +15,7 @@ export default async function (message: Message) {
 	if (content === mention || content === `<@!${message.client.user.id}>`) {
 		const mentionEmbed = new EmbedBuilder()
 			.setColor(PRIMARY_COLOR)
-			.setTitle("Hey! I'm Parallel!")
+			.setTitle("Hey! I'm Luminae!")
 			.setThumbnail(message.client.user.displayAvatarURL())
 			.setDescription(
 				`I only listen for **Slash Commands**! I feature an advanced leveling systems and customizable giveaways. With many more features to come!`
@@ -30,7 +30,7 @@ export default async function (message: Message) {
 				.setLabel("Website")
 				.setEmoji("🌐")
 				.setStyle(ButtonStyle.Link)
-				.setURL("https://blogs.mtdv.me/parallel"),
+				.setURL("https://blogs.mtdv.me/luminae"),
 			new ButtonBuilder()
 				.setLabel("Support Server")
 				.setEmoji("🏠")

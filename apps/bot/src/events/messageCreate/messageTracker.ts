@@ -1,4 +1,4 @@
-import prisma from "@parallel/db";
+import prisma from "@luminae/db";
 import { Message } from "discord.js";
 
 export default async function (message: Message) {

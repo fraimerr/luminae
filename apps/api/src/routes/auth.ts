@@ -2,10 +2,10 @@ import {
 	DISCORD_OAUTH_URL,
 	DISCORD_API_URL,
 	WEB_URL,
-} from "@parallel/shared/utils/constants";
+} from "@luminae/shared/utils/constants";
 import { env } from "../env";
 import { Hono, type Context } from "hono";
-import prisma from "@parallel/db";
+import prisma from "@luminae/db";
 import { setCookie } from "hono/cookie";
 import { SessionManager } from "../services/session";
 import type { Variables } from "../types/context";

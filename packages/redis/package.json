@@ -1,5 +1,5 @@
 {
-  "name": "@parallel/redis",
+  "name": "@luminae/redis",
   "exports": {
     ".": "./src/index.ts"
   },
