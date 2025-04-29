@@ -11,6 +11,7 @@
     "format": "bunx biome format --write .",
     "lint": "bunx biome lint --write .",
     "check": "bunx biome check --write <files>",
+    "commitlint": "commitlint --edit",
     "db:generate": "bunx prisma generate",
     "db:push": "bunx prisma db push",
     "db:studio": "bunx prisma studio"
