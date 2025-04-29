@@ -29,15 +29,15 @@ import { lazyFormattedTime } from "~/util/formatter";
   },
 )
 export class UserCommand extends Command {
-  protected override async runTask(messageOrInteraction: ChatInputCommandInteraction<"cached"> | Message) {
+  protected override async runTask(ctx: ChatInputCommandInteraction<"cached"> | Message) {
     try {
-      const user = authorOrUser(messageOrInteraction);
+      const user = authorOrUser(ctx);
 
-      const forceUser = await messageOrInteraction.guild?.members.fetch(user.id).catch(() => null);
+      const forceUser = await ctx.guild?.members.fetch(user.id).catch(() => null);
 
       if (!forceUser) {
         return handleReply(
-          messageOrInteraction,
+          ctx,
           {
             content: "Could not fetch that user's information.",
           },
@@ -45,7 +45,7 @@ export class UserCommand extends Command {
         );
       }
 
-      const levelData = await getOrCreateLevelData(user.id, messageOrInteraction.guild!.id, false);
+      const levelData = await getOrCreateLevelData(user.id, ctx.guild!.id, false);
 
       const joinedAt = forceUser.joinedAt;
       const createdAt = user.createdAt;
@@ -96,10 +96,10 @@ export class UserCommand extends Command {
         embed.setImage(user.bannerURL({ size: 2048, extension: "png" }) || null);
       }
 
-      await handleReply(messageOrInteraction, { embeds: [embed] });
+      await handleReply(ctx, { embeds: [embed] });
     } catch (error) {
       console.error("Error in info command:", error);
-      return handleReply(messageOrInteraction, {
+      return handleReply(ctx, {
         content: "There was an error fetching the user information. Please try again later.",
         ephemeral: true,
       });

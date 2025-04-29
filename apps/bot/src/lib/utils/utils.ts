@@ -105,14 +105,14 @@ export const validateColor = (embedColor: unknown): number | false => {
   }
 };
 
-export const authorOrUser = (messageOrInteraction: BaseInteraction | Message) => {
-  return "user" in messageOrInteraction ? messageOrInteraction.user : messageOrInteraction.author;
+export const authorOrUser = (ctx: BaseInteraction | Message) => {
+  return "user" in ctx ? ctx.user : ctx.author;
 };
 
 export const isInteraction = (
-  messageOrInteraction: BaseInteraction | Message,
-): messageOrInteraction is BaseInteraction => {
-  return messageOrInteraction instanceof BaseInteraction;
+  ctx: BaseInteraction | Message,
+): ctx is BaseInteraction => {
+  return ctx instanceof BaseInteraction;
 };
 
 export const formatBytes = (bytes: number, decimals = 2) => {
@@ -253,17 +253,17 @@ export const resolveImageURL = async (url: string) => {
 };
 
 export const handleReply = (
-  messageOrInteraction: ChatInputCommandInteraction<"cached"> | Message,
+  ctx: ChatInputCommandInteraction<"cached"> | Message,
   options: Omit<InteractionReplyOptions & MessageReplyOptions & InteractionEditReplyOptions, "flags">,
   ephemeral?: boolean,
 ) => {
-  if (messageOrInteraction instanceof Message) {
-    return messageOrInteraction.reply(options);
+  if (ctx instanceof Message) {
+    return ctx.reply(options);
   } else {
-    if (messageOrInteraction.replied || messageOrInteraction.deferred) {
-      return messageOrInteraction.editReply(options);
+    if (ctx.replied || ctx.deferred) {
+      return ctx.editReply(options);
     }
 
-    return messageOrInteraction.reply(ephemeral ? { ...options, flags: MessageFlags.Ephemeral } : options);
+    return ctx.reply(ephemeral ? { ...options, flags: MessageFlags.Ephemeral } : options);
   }
 };

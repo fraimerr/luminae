@@ -38,7 +38,9 @@ import { ApplyCommandOption, Command } from "~/structure/Command";
 )
 export class UserCommand extends Command {
   protected override async runTask(
-    messageOrInteraction: ChatInputCommandInteraction<"cached"> | Message<true>,
+    ctx: ChatInputCommandInteraction<"cached"> | Message<true>,
     options: Command.ChatInputOptions,
-  ) {}
+  ) {
+    
+  }
 }

@@ -24,11 +24,11 @@ import { ApplyCommandOption, Command } from "~/structure/Command";
 )
 export class UserCommand extends Command {
   protected override async runTask(
-    messageOrInteraction: ChatInputCommandInteraction<"cached"> | Message<true>,
+    ctx: ChatInputCommandInteraction<"cached"> | Message<true>,
     options: Command.ChatInputOptions,
     client: Client<true>,
   ) {
-    const interaction = messageOrInteraction as ChatInputCommandInteraction<"cached">;
+    const interaction = ctx as ChatInputCommandInteraction<"cached">;
 
     const levelingData = await prisma.guildUser.findMany({
       where: { guildId: interaction.guildId! },

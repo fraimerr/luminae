@@ -126,7 +126,7 @@ export abstract class Command {
   }
 
   protected abstract runTask(
-    messageOrInteraction: ChatInputCommandInteraction<"cached"> | Message<true>,
+    ctx: ChatInputCommandInteraction<"cached"> | Message<true>,
     options: Command.ChatInputOptions,
     client: Client<true>,
     prefixUsed?: string,

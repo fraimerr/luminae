@@ -41,13 +41,13 @@ export class UserCommand extends Command {
   }
 
   protected override async runTask(
-    messageOrInteraction: ChatInputCommandInteraction<"cached"> | Message<true>,
+    ctx: ChatInputCommandInteraction<"cached"> | Message<true>,
     options: Command.ChatInputOptions,
   ) {
-    const user = authorOrUser(messageOrInteraction);
+    const user = authorOrUser(ctx);
 
     if (user.id !== "225176015016558593") {
-      return messageOrInteraction.reply({
+      return ctx.reply({
         content: "❌ You do not have permission to use this command.",
         ephemeral: true,
       });
@@ -58,8 +58,8 @@ export class UserCommand extends Command {
     const isEphemeral = options.getBoolean("ephemeral") || false;
     const isTypeScript = mode === "typescript";
 
-    if (isInteraction(messageOrInteraction)) {
-      await messageOrInteraction.deferReply({
+    if (isInteraction(ctx)) {
+      await ctx.deferReply({
         ephemeral: isEphemeral,
       });
     }
@@ -113,10 +113,10 @@ export class UserCommand extends Command {
           ephemeral: isEphemeral,
         };
 
-        if (isInteraction(messageOrInteraction)) {
-          await messageOrInteraction.editReply(payload).catch(() => null);
+        if (isInteraction(ctx)) {
+          await ctx.editReply(payload).catch(() => null);
         } else {
-          await messageOrInteraction.reply(payload);
+          await ctx.reply(payload);
         }
         return;
       }
@@ -124,9 +124,9 @@ export class UserCommand extends Command {
 
     // Create a safe evaluation context
     const context = {
-      interaction: messageOrInteraction,
-      message: messageOrInteraction instanceof Message ? messageOrInteraction : null,
-      client: isInteraction(messageOrInteraction) ? messageOrInteraction.client : messageOrInteraction.client,
+      interaction: ctx,
+      message: ctx instanceof Message ? ctx : null,
+      client: isInteraction(ctx) ? ctx.client : ctx.client,
     };
 
     try {
@@ -204,10 +204,10 @@ export class UserCommand extends Command {
       ephemeral: isEphemeral,
     };
 
-    if (isInteraction(messageOrInteraction)) {
-      await messageOrInteraction.editReply(payload).catch(() => null);
+    if (isInteraction(ctx)) {
+      await ctx.editReply(payload).catch(() => null);
     } else {
-      await messageOrInteraction.reply(payload);
+      await ctx.reply(payload);
     }
   }
 

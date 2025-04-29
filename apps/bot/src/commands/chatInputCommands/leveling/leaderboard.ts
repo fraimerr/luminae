@@ -28,24 +28,24 @@ import { authorOrUser } from "~/util/utils";
   },
 )
 export class UserCommand extends Command {
-  protected override async runTask(messageOrInteraction: ChatInputCommandInteraction<"cached"> | Message<true>) {
+  protected override async runTask(ctx: ChatInputCommandInteraction<"cached"> | Message<true>) {
     const levelLeaderboard = await prisma.guildUser.findMany({
-      where: { guildId: messageOrInteraction.guild.id },
+      where: { guildId: ctx.guild.id },
       orderBy: { xp: "desc" },
     });
 
     const messageLeaderboard = await prisma.guildUser.findMany({
-      where: { guildId: messageOrInteraction.guild.id },
+      where: { guildId: ctx.guild.id },
       orderBy: { messages: "desc" },
     });
 
     const voiceLeaderboard = await prisma.guildUser.findMany({
-      where: { guildId: messageOrInteraction.guild.id },
+      where: { guildId: ctx.guild.id },
       orderBy: { voiceTime: "desc" },
     });
 
     if (!levelLeaderboard.length) {
-      return messageOrInteraction.reply({
+      return ctx.reply({
         content: "Leaderboard is empty",
       });
     }
@@ -62,8 +62,8 @@ export class UserCommand extends Command {
       )
       .setTimestamp()
       .setFooter({
-        text: messageOrInteraction.client.user.username,
-        iconURL: messageOrInteraction.client.user.displayAvatarURL(),
+        text: ctx.client.user.username,
+        iconURL: ctx.client.user.displayAvatarURL(),
       });
 
     const messageLeaderboardEmbed = new EmbedBuilder()
@@ -79,8 +79,8 @@ export class UserCommand extends Command {
       )
       .setTimestamp()
       .setFooter({
-        text: messageOrInteraction.client.user.username,
-        iconURL: messageOrInteraction.client.user.displayAvatarURL(),
+        text: ctx.client.user.username,
+        iconURL: ctx.client.user.displayAvatarURL(),
       });
 
     const voiceLeaderboardEmbed = new EmbedBuilder()
@@ -96,8 +96,8 @@ export class UserCommand extends Command {
       )
       .setTimestamp()
       .setFooter({
-        text: messageOrInteraction.client.user.username,
-        iconURL: messageOrInteraction.client.user.displayAvatarURL(),
+        text: ctx.client.user.username,
+        iconURL: ctx.client.user.displayAvatarURL(),
       });
 
     const row = new ActionRowBuilder<StringSelectMenuBuilder>().addComponents(
@@ -120,13 +120,13 @@ export class UserCommand extends Command {
         ]),
     );
 
-    const reply = await messageOrInteraction.reply({
+    const reply = await ctx.reply({
       embeds: [levelLeaderboardEmbed],
       components: [row],
     });
 
     const collector = reply.createMessageComponentCollector({
-      filter: (i) => i.user.id === authorOrUser(messageOrInteraction).id,
+      filter: (i) => i.user.id === authorOrUser(ctx).id,
       idle: 15 * Time.Minute,
       componentType: ComponentType.StringSelect,
     });

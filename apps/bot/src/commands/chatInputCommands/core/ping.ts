@@ -9,8 +9,8 @@ import { formatMs } from "~/util/utils";
   allowDM: true,
 })
 export class UserCommand extends Command {
-  protected override async runTask(messageOrInteraction: ChatInputCommandInteraction<"cached"> | Message<true>) {
-    let sent = await messageOrInteraction.reply({
+  protected override async runTask(ctx: ChatInputCommandInteraction<"cached"> | Message<true>) {
+    let sent = await ctx.reply({
       content: `🏓 Pong!`,
       fetchReply: true,
     });
@@ -18,8 +18,8 @@ export class UserCommand extends Command {
     try {
       sent.edit(
         `🏓 Pong! \`|\` Heartbeat : **${formatMs(
-          messageOrInteraction.client.ws.ping,
-        )}** \`|\` Roundtrip latency : **${formatMs(sent.createdTimestamp - messageOrInteraction.createdTimestamp)}**`,
+          ctx.client.ws.ping,
+        )}** \`|\` Roundtrip latency : **${formatMs(sent.createdTimestamp - ctx.createdTimestamp)}**`,
       );
     } catch (e) {}
   }

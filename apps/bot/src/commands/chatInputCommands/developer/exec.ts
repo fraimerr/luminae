@@ -29,17 +29,17 @@ export class UserCommand extends Command {
   }
 
   protected override async runTask(
-    messageOrInteraction: ChatInputCommandInteraction<"cached"> | Message<true>,
+    ctx: ChatInputCommandInteraction<"cached"> | Message<true>,
     options: Command.ChatInputOptions,
   ) {
-    const user = authorOrUser(messageOrInteraction);
+    const user = authorOrUser(ctx);
 
     if (user.id !== "225176015016558593") return;
     const commandToRun = options.getString("command", true);
-    if (!commandToRun) return messageOrInteraction.reply("Please provide a command to run.");
+    if (!commandToRun) return ctx.reply("Please provide a command to run.");
 
-    if (isInteraction(messageOrInteraction))
-      await messageOrInteraction.deferReply({
+    if (isInteraction(ctx))
+      await ctx.deferReply({
         ephemeral: true,
       });
 
@@ -90,8 +90,8 @@ export class UserCommand extends Command {
       embeds: [embed],
     };
 
-    if (isInteraction(messageOrInteraction)) await messageOrInteraction.editReply(payload).catch(() => null);
-    else await messageOrInteraction.reply(payload);
+    if (isInteraction(ctx)) await ctx.editReply(payload).catch(() => null);
+    else await ctx.reply(payload);
   }
 
   protected override transformArgs(message: Message<true>, args: string[]) {
