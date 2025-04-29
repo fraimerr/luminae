@@ -11,7 +11,7 @@
     "@luminae/shared": "workspace:*",
     "@luminae/types": "workspace:*",
     "@luminae/db": "workspace:*",
-    "discord-api-types": "^0.37.119",
+    "discord-api-types": "^0.38.1",
     "hono": "^4.7.5",
     "hono-rate-limiter": "^0.4.2",
     "jsonwebtoken": "^9.0.2",
