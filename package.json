@@ -1,9 +1,10 @@
 {
   "name": "luminae",
+  "module": "index.ts",
   "type": "module",
   "private": true,
-  "version": "1.0-b.0.1",
-  "packageManager": "bun@1.2.8",
+  "version": "1.0.0-a.0.1",
+  "packageManager": "bun@1.2.10",
   "author": "Fraimer",
   "workspaces": ["apps/*", "packages/*"],
   "scripts": {
@@ -15,6 +16,7 @@
     "db:studio": "bunx prisma studio"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.9.4",
     "@types/bun": "latest",
     "turbo": "^2.5.0"
   },
