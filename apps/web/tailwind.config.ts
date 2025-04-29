@@ -20,7 +20,7 @@ const config: Config = {
         // Core Theme Colors
         background: "var(--background)",
         foreground: "var(--foreground)",
-        
+
         // Card and Popover
         card: {
           DEFAULT: "var(--card)",
@@ -30,13 +30,13 @@ const config: Config = {
           DEFAULT: "var(--popover)",
           foreground: "var(--popover-foreground)",
         },
-        
+
         // Primary Colors
         primary: {
           DEFAULT: "var(--primary)",
           foreground: "var(--primary-foreground)",
         },
-        
+
         // Secondary and Accent Colors
         secondary: {
           DEFAULT: "var(--secondary)",
@@ -50,7 +50,7 @@ const config: Config = {
           DEFAULT: "var(--accent)",
           foreground: "var(--accent-foreground)",
         },
-        
+
         // Functional Colors
         destructive: {
           DEFAULT: "var(--destructive)",
@@ -96,4 +96,4 @@ const config: Config = {
   plugins: [require("tailwindcss-animate")],
 };
 
-export default config; 
+export default config;

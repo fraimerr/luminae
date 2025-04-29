@@ -13,7 +13,7 @@ export default function ServerLayout({
 }) {
   // Use type assertion to handle the potential Promise type
   const resolvedParams = React.use(params as any) as PageParams;
-  
+
   return (
     <div className="flex">
       <Sidebar guildId={resolvedParams.guildId} />

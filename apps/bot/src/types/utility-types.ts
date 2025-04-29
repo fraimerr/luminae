@@ -1,9 +1,9 @@
 export type Nullable<T> = { [K in keyof T]: T[K] | null };
 
 export enum RequiredRoleType {
-	AnyOneOf,
-	All,
-	None,
+  AnyOneOf,
+  All,
+  None,
 }
 
 /**

@@ -10,17 +10,15 @@ import Footer from "~/components/Footer";
 const queryClient = new QueryClient();
 
 export default function Provider({ children }: { children: React.ReactNode }) {
-	return (
-		<QueryClientProvider client={queryClient}>
-			<AuthProvider>
-				<Navbar />
-				<main className="flex-1 w-full min-h-[calc(100vh-4rem)] flex flex-col">
-					{children}
-				</main>
-				<Footer/>
-				<Toaster />
-			</AuthProvider>
-			<ReactQueryDevtools initialIsOpen={false} />
-		</QueryClientProvider>
-	);
+  return (
+    <QueryClientProvider client={queryClient}>
+      <AuthProvider>
+        <Navbar />
+        <main className="flex-1 w-full min-h-[calc(100vh-4rem)] flex flex-col">{children}</main>
+        <Footer />
+        <Toaster />
+      </AuthProvider>
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
+  );
 }

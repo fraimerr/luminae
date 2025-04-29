@@ -30,16 +30,12 @@ export default function ErrorUI({
   className = "",
 }: ErrorUIProps) {
   const errorMessage = message || error.message || "An unexpected error occurred. Please try again later.";
-  
+
   const ErrorIcon = icon === "triangle" ? AlertTriangle : AlertCircle;
-  
-  const contentWrapperClass = layout === "centered" 
-    ? "flex justify-center items-center min-h-[50vh]" 
-    : "space-y-4";
-  
-  const cardClass = layout === "centered" 
-    ? "w-full max-w-md border-destructive/30" 
-    : "border-destructive/30";
+
+  const contentWrapperClass = layout === "centered" ? "flex justify-center items-center min-h-[50vh]" : "space-y-4";
+
+  const cardClass = layout === "centered" ? "w-full max-w-md border-destructive/30" : "border-destructive/30";
 
   return (
     <div className={`${contentWrapperClass} ${className}`}>
@@ -51,24 +47,17 @@ export default function ErrorUI({
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="text-muted-foreground mb-4">
-            {errorMessage}
-          </p>
+          <p className="text-muted-foreground mb-4">{errorMessage}</p>
         </CardContent>
         <CardFooter className="flex justify-end gap-2">
           {backPath && (
-            <Button 
-              variant="outline" 
-              onClick={() => window.location.href = backPath}
-            >
+            <Button variant="outline" onClick={() => (window.location.href = backPath)}>
               {backLabel}
             </Button>
           )}
-          <Button onClick={reset}>
-            {resetLabel}
-          </Button>
+          <Button onClick={reset}>{resetLabel}</Button>
         </CardFooter>
       </Card>
     </div>
   );
-} 
+}

@@ -1,8 +1,7 @@
-import { Giveaways } from "@prisma/client"
+import { Giveaways } from "@prisma/client";
 
-export type GiveawayMultiplier = {}
+export type GiveawayMultiplier = {};
 
-export type GiveawayRequirement = {}
+export type GiveawayRequirement = {};
 
-export type Giveaway = Giveaways
-
+export type Giveaway = Giveaways;

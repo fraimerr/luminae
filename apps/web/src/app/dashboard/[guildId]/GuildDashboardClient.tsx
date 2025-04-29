@@ -20,12 +20,8 @@ export default function GuildDashboardClient({
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight">
-          {guild?.name || "Server Dashboard"}
-        </h1>
-        <p className="text-muted-foreground">
-          Manage your server's bot configuration
-        </p>
+        <h1 className="text-3xl font-bold tracking-tight">{guild?.name || "Server Dashboard"}</h1>
+        <p className="text-muted-foreground">Manage your server's bot configuration</p>
       </div>
 
       <Tabs defaultValue="overview">
@@ -34,7 +30,7 @@ export default function GuildDashboardClient({
           <TabsTrigger value="members">Members</TabsTrigger>
           <TabsTrigger value="activity">Activity</TabsTrigger>
         </TabsList>
-        
+
         <TabsContent value="overview" className="space-y-4">
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             <Card>
@@ -45,7 +41,7 @@ export default function GuildDashboardClient({
                 <div className="text-2xl font-bold">-</div>
               </CardContent>
             </Card>
-            
+
             <Card>
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm font-medium">Active Users</CardTitle>
@@ -54,7 +50,7 @@ export default function GuildDashboardClient({
                 <div className="text-2xl font-bold">-</div>
               </CardContent>
             </Card>
-            
+
             <Card>
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm font-medium">Commands Used</CardTitle>
@@ -64,45 +60,39 @@ export default function GuildDashboardClient({
               </CardContent>
             </Card>
           </div>
-          
+
           <Card>
             <CardHeader>
               <CardTitle>Recent Activity</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-muted-foreground">
-                No recent activity to display
-              </p>
+              <p className="text-sm text-muted-foreground">No recent activity to display</p>
             </CardContent>
           </Card>
         </TabsContent>
-        
+
         <TabsContent value="members" className="space-y-4">
           <Card>
             <CardHeader>
               <CardTitle>Server Members</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-muted-foreground">
-                Member information will be displayed here
-              </p>
+              <p className="text-sm text-muted-foreground">Member information will be displayed here</p>
             </CardContent>
           </Card>
         </TabsContent>
-        
+
         <TabsContent value="activity" className="space-y-4">
           <Card>
             <CardHeader>
               <CardTitle>Activity Log</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-muted-foreground">
-                Activity log will be displayed here
-              </p>
+              <p className="text-sm text-muted-foreground">Activity log will be displayed here</p>
             </CardContent>
           </Card>
         </TabsContent>
       </Tabs>
     </div>
   );
-} 
+}

@@ -1,19 +1,19 @@
 {
-	"compilerOptions": {
-		"baseUrl": ".",
-		"paths": {
-			"@app/*": ["./apps/*/src"],
-			"@shared/*": ["./packages/shared/src/*"]
-		},
-		"strict": true,
-		"esModuleInterop": true,
-		"skipLibCheck": true,
-		"forceConsistentCasingInFileNames": true,
-		"composite": true,
-		"module": "esnext",
-		"moduleResolution": "bundler",
-		"resolveJsonModule": true,
-		"isolatedModules": true
-	},
-	"exclude": ["**/node_modules", "**/dist"]
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@app/*": ["./apps/*/src"],
+      "@shared/*": ["./packages/shared/src/*"]
+    },
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "composite": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true
+  },
+  "exclude": ["**/node_modules", "**/dist"]
 }

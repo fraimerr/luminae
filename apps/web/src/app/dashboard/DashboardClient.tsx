@@ -50,10 +50,7 @@ export default function DashboardClient() {
 
         <div className="grid gap-3 sm:grid-cols-4 lg:grid-cols-6">
           {guilds?.data.map((guild) => (
-            <Card
-              key={guild.id}
-              className="group hover:shadow-lg transition-all"
-            >
+            <Card key={guild.id} className="group hover:shadow-lg transition-all">
               <CardContent className="p-3">
                 <div className="h-16 w-16 relative rounded-lg overflow-hidden mb-2 mx-auto">
                   <Image
@@ -69,16 +66,9 @@ export default function DashboardClient() {
                 </div>
                 <div className="space-y-2">
                   <div className="text-center">
-                    <h2 className="font-medium text-sm truncate">
-                      {guild.name}
-                    </h2>
+                    <h2 className="font-medium text-sm truncate">{guild.name}</h2>
                   </div>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="w-full h-7 text-xs"
-                    asChild
-                  >
+                  <Button variant="outline" size="sm" className="w-full h-7 text-xs" asChild>
                     <Link
                       href={
                         guild.botPresent
@@ -107,4 +97,4 @@ export default function DashboardClient() {
       </div>
     </div>
   );
-} 
+}

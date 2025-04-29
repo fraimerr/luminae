@@ -3,30 +3,10 @@
 import React from "react";
 import { Switch } from "~/components/ui/switch";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "~/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "~/components/ui/card";
 import { Button } from "~/components/ui/button";
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "~/components/ui/form";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "~/components/ui/select";
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "~/components/ui/form";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "~/components/ui/select";
 import { Textarea } from "~/components/ui/textarea";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -52,7 +32,7 @@ export default function LevelingClient({
     queryKey: [`/guilds/${guildId}/config/leveling`],
     queryFn: () => getData<{ data: FormValues }>(`/guilds/${guildId}/config/leveling`),
   });
-  
+
   const { data: channels } = useQuery({
     queryKey: [`/guilds/${guildId}/channels`],
     queryFn: () => getData<{ data: Array<{ id: string; name: string }> }>(`/guilds/${guildId}/channels`),
@@ -70,15 +50,12 @@ export default function LevelingClient({
 
   const { mutate } = useMutation({
     mutationFn: async (values: FormValues) => {
-      const response = await fetch(
-        `http://localhost:5000/v1/guilds/${guildId}/config/leveling`,
-        {
-          method: "PATCH",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(values),
-          credentials: "include",
-        }
-      );
+      const response = await fetch(`http://localhost:5000/v1/guilds/${guildId}/config/leveling`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+        credentials: "include",
+      });
 
       if (!response.ok) {
         const error = await response.json().catch(() => null);
@@ -111,9 +88,7 @@ export default function LevelingClient({
     <div className="space-y-4">
       <div>
         <h1 className="text-2xl font-semibold tracking-tight">Leveling</h1>
-        <p className="text-sm text-muted-foreground">
-          Configure leveling settings for your server
-        </p>
+        <p className="text-sm text-muted-foreground">Configure leveling settings for your server</p>
       </div>
 
       <Form {...form}>
@@ -122,9 +97,7 @@ export default function LevelingClient({
             <Card>
               <CardHeader>
                 <CardTitle>Basic Settings</CardTitle>
-                <CardDescription>
-                  Configure basic leveling settings
-                </CardDescription>
+                <CardDescription>Configure basic leveling settings</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <FormField
@@ -133,18 +106,11 @@ export default function LevelingClient({
                   render={({ field }) => (
                     <FormItem className="flex items-center justify-between rounded-lg border p-4">
                       <div className="space-y-0.5">
-                        <FormLabel className="text-base">
-                          Enable Leveling
-                        </FormLabel>
-                        <FormDescription>
-                          Turn the leveling system on or off
-                        </FormDescription>
+                        <FormLabel className="text-base">Enable Leveling</FormLabel>
+                        <FormDescription>Turn the leveling system on or off</FormDescription>
                       </div>
                       <FormControl>
-                        <Switch
-                          checked={field.value}
-                          onCheckedChange={field.onChange}
-                        />
+                        <Switch checked={field.value} onCheckedChange={field.onChange} />
                       </FormControl>
                     </FormItem>
                   )}
@@ -155,18 +121,11 @@ export default function LevelingClient({
                   render={({ field }) => (
                     <FormItem className="flex items-center justify-between rounded-lg border p-4">
                       <div className="space-y-0.5">
-                        <FormLabel className="text-base">
-                          Announce Level Ups
-                        </FormLabel>
-                        <FormDescription>
-                          Send a message when users level up
-                        </FormDescription>
+                        <FormLabel className="text-base">Announce Level Ups</FormLabel>
+                        <FormDescription>Send a message when users level up</FormDescription>
                       </div>
                       <FormControl>
-                        <Switch
-                          checked={field.value}
-                          onCheckedChange={field.onChange}
-                        />
+                        <Switch checked={field.value} onCheckedChange={field.onChange} />
                       </FormControl>
                     </FormItem>
                   )}
@@ -177,9 +136,7 @@ export default function LevelingClient({
             <Card>
               <CardHeader>
                 <CardTitle>Announcement Settings</CardTitle>
-                <CardDescription>
-                  Configure how level up announcements are shown
-                </CardDescription>
+                <CardDescription>Configure how level up announcements are shown</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <FormField
@@ -188,13 +145,8 @@ export default function LevelingClient({
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Announcement Channel</FormLabel>
-                      <FormDescription>
-                        Choose where level up messages are sent
-                      </FormDescription>
-                      <Select
-                        onValueChange={field.onChange}
-                        defaultValue={field.value}
-                      >
+                      <FormDescription>Choose where level up messages are sent</FormDescription>
+                      <Select onValueChange={field.onChange} defaultValue={field.value}>
                         <FormControl>
                           <SelectTrigger>
                             <SelectValue placeholder="Select a channel" />
@@ -220,15 +172,11 @@ export default function LevelingClient({
                     <FormItem>
                       <FormLabel>Level Up Message</FormLabel>
                       <FormDescription>
-                        Customize the message sent when users level up.
-                        Available variables: {"{user.mention}"}, {"{level}"}
+                        Customize the message sent when users level up. Available variables: {"{user.mention}"},{" "}
+                        {"{level}"}
                       </FormDescription>
                       <FormControl>
-                        <Textarea
-                          placeholder="Type your message here"
-                          className="resize-none"
-                          {...field}
-                        />
+                        <Textarea placeholder="Type your message here" className="resize-none" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -238,11 +186,7 @@ export default function LevelingClient({
             </Card>
 
             <div className="flex justify-end gap-4">
-              <Button
-                type="button"
-                variant="outline"
-                onClick={() => form.reset()}
-              >
+              <Button type="button" variant="outline" onClick={() => form.reset()}>
                 Reset
               </Button>
               <Button type="submit">Save Changes</Button>
@@ -252,4 +196,4 @@ export default function LevelingClient({
       </Form>
     </div>
   );
-} 
+}

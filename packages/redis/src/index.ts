@@ -2,9 +2,10 @@ import { Redis } from "ioredis";
 
 import { env } from "./env";
 
-const createRedisClient = () => new Redis(env.REDIS_URL, {
-  lazyConnect: true,
-});
+const createRedisClient = () =>
+  new Redis(env.REDIS_URL, {
+    lazyConnect: true,
+  });
 
 const globalForRedis = globalThis as unknown as { redis: ReturnType<typeof createRedisClient> | undefined };
 

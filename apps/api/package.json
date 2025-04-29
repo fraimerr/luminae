@@ -1,23 +1,23 @@
 {
-	"name": "@luminae/api",
-	"private": true,
-	"scripts": {
-		"dev": "bun --watch src/index.ts",
-		"build": "bun build ./src/index.ts --outdir ./dist",
-		"start": "bun run ./dist/index.js"
-	},
-	"dependencies": {
-		"@hono/zod-validator": "^0.4.3",
-		"@luminae/shared": "workspace:*",
-		"@luminae/types": "workspace:*",
-		"@luminae/db": "workspace:*",
-		"discord-api-types": "^0.37.119",
-		"hono": "^4.7.5",
-		"hono-rate-limiter": "^0.4.2",
-		"jsonwebtoken": "^9.0.2",
-		"zod": "^3.24.2"
-	},
-	"devDependencies": {
-		"@types/bun": "^1.2.8"
-	}
+  "name": "@luminae/api",
+  "private": true,
+  "scripts": {
+    "dev": "bun --watch src/index.ts",
+    "build": "bun build ./src/index.ts --outdir ./dist",
+    "start": "bun run ./dist/index.js"
+  },
+  "dependencies": {
+    "@hono/zod-validator": "^0.4.3",
+    "@luminae/shared": "workspace:*",
+    "@luminae/types": "workspace:*",
+    "@luminae/db": "workspace:*",
+    "discord-api-types": "^0.37.119",
+    "hono": "^4.7.5",
+    "hono-rate-limiter": "^0.4.2",
+    "jsonwebtoken": "^9.0.2",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.2.8"
+  }
 }

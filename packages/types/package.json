@@ -1,7 +1,5 @@
 {
-	"name": "@luminae/types",
-	"types": "",
-  "files": [
-    "*.d.ts"
-  ]
+  "name": "@luminae/types",
+  "types": "",
+  "files": ["*.d.ts"]
 }

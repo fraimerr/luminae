@@ -6,6 +6,4 @@ export default async function (member: GuildMember) {
   const guild = member.guild;
   const invites = await guild.invites.fetch();
   const invite = invites.find((i) => i.inviter?.id === member.id);
-
-  
 }

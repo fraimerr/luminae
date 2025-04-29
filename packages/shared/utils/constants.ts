@@ -1,7 +1,5 @@
-
-
 export const DISCORD_OAUTH_URL = `https://discord.com/api/oauth2/authorize?client_id=1349495395822211134&redirect_uri=${encodeURIComponent(
-	"http://localhost:5000/v1/auth/callback"
+  "http://localhost:5000/v1/auth/callback",
 )}&response_type=code&scope=identify%20email%20guilds`;
 
 export const DISCORD_API_URL = "https://discord.com/api";

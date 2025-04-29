@@ -10,12 +10,6 @@ export default function LevelingError({
   reset: () => void;
 }) {
   return (
-    <ErrorUI
-      error={error}
-      reset={reset}
-      title="Error Loading Leveling Settings"
-      icon="circle"
-      resetLabel="Try again"
-    />
+    <ErrorUI error={error} reset={reset} title="Error Loading Leveling Settings" icon="circle" resetLabel="Try again" />
   );
-} 
+}

@@ -2,174 +2,174 @@
 @import "tw-animate-css";
 
 @theme inline {
-	--color-background: var(--background);
-	--color-foreground: var(--foreground);
-	--font-sans: var(--font-geist-sans);
-	--font-mono: var(--font-geist-mono);
-	--color-sidebar-ring: var(--sidebar-ring);
-	--color-sidebar-border: var(--sidebar-border);
-	--color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-	--color-sidebar-accent: var(--sidebar-accent);
-	--color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-	--color-sidebar-primary: var(--sidebar-primary);
-	--color-sidebar-foreground: var(--sidebar-foreground);
-	--color-sidebar: var(--sidebar);
-	--color-chart-5: var(--chart-5);
-	--color-chart-4: var(--chart-4);
-	--color-chart-3: var(--chart-3);
-	--color-chart-2: var(--chart-2);
-	--color-chart-1: var(--chart-1);
-	--color-ring: var(--ring);
-	--color-input: var(--input);
-	--color-border: var(--border);
-	--color-destructive: var(--destructive);
-	--color-accent-foreground: var(--accent-foreground);
-	--color-accent: var(--accent);
-	--color-muted-foreground: var(--muted-foreground);
-	--color-muted: var(--muted);
-	--color-secondary-foreground: var(--secondary-foreground);
-	--color-secondary: var(--secondary);
-	--color-primary-foreground: var(--primary-foreground);
-	--color-primary: var(--primary);
-	--color-popover-foreground: var(--popover-foreground);
-	--color-popover: var(--popover);
-	--color-card-foreground: var(--card-foreground);
-	--color-card: var(--card);
-	--radius-sm: calc(var(--radius) - 4px);
-	--radius-md: calc(var(--radius) - 2px);
-	--radius-lg: var(--radius);
-	--radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
 :root {
-	/* Core Theme Colors - Aurora Flow */
-	--background: #201f2e;
-	--foreground: #eae6f0;
-	
-	/* Card and Popover */
-	--card: #2a283a;
-	--card-foreground: #eae6f0;
-	--popover: #2a283a;
-	--popover-foreground: #eae6f0;
-	
-	/* Primary Colors */
-	--primary: #d097af;
-	--primary-foreground: #100f17;
-	
-	/* Secondary and Accent Colors */
-	--secondary: #3a384c;
-	--secondary-foreground: #eae6f0;
-	--muted: #3a384c;
-	--muted-foreground: #a09cb0;
-	--accent: #89a1d1;
-	--accent-foreground: #eae6f0;
-	
-	/* Functional Colors */
-	--destructive: #ef4444;
-	--destructive-foreground: #fef2f2;
-	--border: #3a384c;
-	--input: #3a384c;
-	--ring: #d097af;
-	
-	/* Chart Colors - Aurora Inspired */
-	--chart-1: #89a1d1;  /* Soft Blue */
-	--chart-2: #d097af;  /* Primary Pink */
-	--chart-3: #e5c1b3;  /* Pale Peach */
-	--chart-4: #a09cb0;  /* Muted Lavender */
-	--chart-5: #3a384c;  /* Dark Indigo */
-	
-	/* Sidebar Specific */
-	--sidebar: #1a1923;
-	--sidebar-foreground: #eae6f0;
-	--sidebar-primary: #d097af;
-	--sidebar-primary-foreground: #100f17;
-	--sidebar-accent: #89a1d1;
-	--sidebar-accent-foreground: #100f17;
-	--sidebar-border: #3a384c;
-	--sidebar-ring: #d097af;
-	
-	/* Border Radius */
-	--radius: 0.75rem;
+  /* Core Theme Colors - Aurora Flow */
+  --background: #201f2e;
+  --foreground: #eae6f0;
+
+  /* Card and Popover */
+  --card: #2a283a;
+  --card-foreground: #eae6f0;
+  --popover: #2a283a;
+  --popover-foreground: #eae6f0;
+
+  /* Primary Colors */
+  --primary: #d097af;
+  --primary-foreground: #100f17;
+
+  /* Secondary and Accent Colors */
+  --secondary: #3a384c;
+  --secondary-foreground: #eae6f0;
+  --muted: #3a384c;
+  --muted-foreground: #a09cb0;
+  --accent: #89a1d1;
+  --accent-foreground: #eae6f0;
+
+  /* Functional Colors */
+  --destructive: #ef4444;
+  --destructive-foreground: #fef2f2;
+  --border: #3a384c;
+  --input: #3a384c;
+  --ring: #d097af;
+
+  /* Chart Colors - Aurora Inspired */
+  --chart-1: #89a1d1; /* Soft Blue */
+  --chart-2: #d097af; /* Primary Pink */
+  --chart-3: #e5c1b3; /* Pale Peach */
+  --chart-4: #a09cb0; /* Muted Lavender */
+  --chart-5: #3a384c; /* Dark Indigo */
+
+  /* Sidebar Specific */
+  --sidebar: #1a1923;
+  --sidebar-foreground: #eae6f0;
+  --sidebar-primary: #d097af;
+  --sidebar-primary-foreground: #100f17;
+  --sidebar-accent: #89a1d1;
+  --sidebar-accent-foreground: #100f17;
+  --sidebar-border: #3a384c;
+  --sidebar-ring: #d097af;
+
+  /* Border Radius */
+  --radius: 0.75rem;
 }
 
 @layer base {
-	* {
-		@apply border-border outline-ring/50;
-	}
-	body {
-		@apply bg-background text-foreground;
-		font-feature-settings: "rlig" 1, "calt" 1;
-	}
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
 }
 
 /* Custom Aurora Flow Utilities */
 @layer utilities {
-	.bg-aurora-gradient {
-		background: linear-gradient(135deg, #89a1d1 0%, #e5c1b3 100%);
-	}
-	
-	.text-aurora-gradient {
-		background: linear-gradient(135deg, #89a1d1 0%, #e5c1b3 100%);
-		-webkit-background-clip: text;
-		background-clip: text;
-		color: transparent;
-	}
-	
-	.border-aurora-gradient {
-		border-image: linear-gradient(135deg, #89a1d1 0%, #e5c1b3 100%) 1;
-	}
-	
-	.hover-gradient-wash {
-		position: relative;
-		overflow: hidden;
-	}
-	
-	.hover-gradient-wash::before {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background: linear-gradient(135deg, #89a1d1 0%, #e5c1b3 100%);
-		opacity: 0;
-		transition: opacity 0.3s ease;
-	}
-	
-	.hover-gradient-wash:hover::before {
-		opacity: 0.1;
-	}
+  .bg-aurora-gradient {
+    background: linear-gradient(135deg, #89a1d1 0%, #e5c1b3 100%);
+  }
+
+  .text-aurora-gradient {
+    background: linear-gradient(135deg, #89a1d1 0%, #e5c1b3 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .border-aurora-gradient {
+    border-image: linear-gradient(135deg, #89a1d1 0%, #e5c1b3 100%) 1;
+  }
+
+  .hover-gradient-wash {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hover-gradient-wash::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #89a1d1 0%, #e5c1b3 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .hover-gradient-wash:hover::before {
+    opacity: 0.1;
+  }
 }
 
 /* Scrollbar Styling */
 .scrollbar-none::-webkit-scrollbar {
-	display: none;
+  display: none;
 }
 
 .scrollbar-none {
-	-ms-overflow-style: none;
-	scrollbar-width: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 ::selection {
-	@apply bg-primary text-primary-foreground;
+  @apply bg-primary text-primary-foreground;
 }
 
 ::-webkit-scrollbar {
-	width: 6px;
-	background: var(--background);
+  width: 6px;
+  background: var(--background);
 }
 
 ::-webkit-scrollbar-thumb {
-	background: var(--primary);
-	border-radius: 3px;
+  background: var(--primary);
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-	background: var(--accent);
+  background: var(--accent);
 }
 
 /* Container */
 .container {
-	@apply mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl;
+  @apply mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl;
 }

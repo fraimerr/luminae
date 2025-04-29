@@ -11,15 +11,15 @@ export default async function DashboardPage({
 }) {
   const { guildId } = params;
   const queryClient = new QueryClient();
-  
+
   // Prefetch the guild data
   await queryClient.prefetchQuery({
     queryKey: [`/guilds/${guildId}`],
     queryFn: () => getData(`/guilds/${guildId}`),
   });
-  
+
   const dehydratedState = dehydrate(queryClient);
-  
+
   return (
     <HydrationBoundary state={dehydratedState}>
       <GuildDashboardClient guildId={guildId} />

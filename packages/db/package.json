@@ -1,6 +1,6 @@
 {
   "name": "@luminae/db",
-  "exports":{
+  "exports": {
     ".": "./src/index.ts"
   }
 }

@@ -3,19 +3,19 @@ import { AchievementCard } from "~/manager/achievements/AchievementCard";
 import prisma from "@luminae/db";
 
 export default async function (message: Message) {
-	if (message.author.bot) return;
-	if (!message.inGuild()) return;
-	if (message.channel.type !== ChannelType.GuildText) return;
+  if (message.author.bot) return;
+  if (!message.inGuild()) return;
+  if (message.channel.type !== ChannelType.GuildText) return;
 
-	const achievements = await prisma.achievements.findUnique({
-		where: { guildId: message.guild.id },
-	});
+  const achievements = await prisma.achievements.findUnique({
+    where: { guildId: message.guild.id },
+  });
 
-	if (!achievements || achievements.enabled === false) return;
+  if (!achievements || achievements.enabled === false) return;
 
-	const achievementCard = await AchievementCard.create(message.member!);
+  const achievementCard = await AchievementCard.create(message.member!);
 
-	await message.channel.send({
-		files: achievementCard,
-	});
+  await message.channel.send({
+    files: achievementCard,
+  });
 }
