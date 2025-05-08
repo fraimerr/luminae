@@ -29,7 +29,6 @@ export class UserCommand extends Command {
 		options: Command.ChatInputOptions
 	) {
 		const user = options.getUser("user") || authorOrUser(ctx);
-
 		const member = await ctx.guild.members.fetch(user.id);
 
 		const levelData = await getLevelData(
